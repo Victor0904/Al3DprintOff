@@ -1,0 +1,47 @@
+api_categories:
+    resource: ../../src/Controller/CategoriesController.php
+    type: attribute
+
+api_produits:
+    resource: ../../src/Controller/ProduitsController.php
+    type: attribute
+
+api_produits_personnalises:
+    resource: ../../src/Controller/ProduitPersonnaliseController.php
+    type: attribute
+
+api_clients:
+    resource: ../../src/Controller/ClientsController.php
+    type: attribute
+
+api_commandes:
+    resource: ../../src/Controller/CommandesController.php
+    type: attribute
+
+api_options_personnalisation:
+    resource: ../../src/Controller/OptionsPersonnalisationController.php
+    type: attribute
+
+api_paiements:
+    resource: ../../src/Controller/PaiementsController.php
+    type: attribute
+
+api_avis_clients:
+    resource: ../../src/Controller/AvisClientsController.php
+    type: attribute
+
+api_impressions:
+    resource: ../../src/Controller/ImpressionsController.php
+    type: attribute
+
+api_images_produit:
+    resource: ../../src/Controller/ImagesProduitController.php
+    type: attribute
+
+api_cors:
+    resource: ../../src/Controller/CorsController.php
+    type: attribute
+
+api_home:
+    resource: ../../src/Controller/ApiController.php
+    type: attribute

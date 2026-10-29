@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">
+    <meta name="theme-color" content="#d0ff59">
+
+    <!-- SEO de base (overridé dynamiquement par useSeo) -->
+    <title>Al3DPrint — Impression 3D Personnalisée</title>
+    <meta name="description" content="Al3DPrint — Impression 3D personnalisée de qualité. Découvrez nos produits innovants et créez vos objets sur mesure.">
+    <meta name="keywords" content="impression 3D, personnalisation, figurines, prototypes, objets 3D, al3dprint">
+    <meta name="author" content="Al3DPrint">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://al3dprint.fr/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Al3DPrint — Impression 3D Personnalisée">
+    <meta property="og:description" content="L'avenir de l'impression 3D à votre portée. Produits innovants et personnalisables.">
+    <meta property="og:image" content="https://al3dprint.fr/logo.png">
+    <meta property="og:url" content="https://al3dprint.fr/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Al3DPrint">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Al3DPrint — Impression 3D Personnalisée">
+    <meta name="twitter:description" content="L'avenir de l'impression 3D à votre portée. Produits innovants et personnalisables.">
+    <meta name="twitter:image" content="https://al3dprint.fr/logo.png">
+
+    <!-- JSON-LD : Organisation + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://al3dprint.fr/#organization",
+          "name": "Al3DPrint",
+          "url": "https://al3dprint.fr",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://al3dprint.fr/logo.png"
+          },
+          "description": "Spécialiste de l'impression 3D personnalisée en France.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "availableLanguage": "French"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://al3dprint.fr/#website",
+          "url": "https://al3dprint.fr",
+          "name": "Al3DPrint",
+          "publisher": { "@id": "https://al3dprint.fr/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://al3dprint.fr/products?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Préconnexion polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

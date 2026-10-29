@@ -1,0 +1,7 @@
+# Réglages locaux
+.claude/settings.local.json
+*.url
+
+# Secrets
+.env.local
+**/.env.local
