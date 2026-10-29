@@ -61,6 +61,7 @@ class ProduitsController extends SecuredApiController
                     ] : null,
                     'image_principale' => $produit->getImagePrincipale(),
                     'actif'            => $produit->isActif(),
+                    'nb_coloris'       => $produit->getVariantesCouleur()->filter(fn ($v) => $v->isActif())->count(),
                 ];
             }
 
@@ -133,6 +134,7 @@ class ProduitsController extends SecuredApiController
                         'nom_couleur'  => $variante->getNomCouleur(),
                         'code_couleur' => $variante->getCodeCouleur(),
                         'image_url'    => $variante->getImageUrl(),
+                        'video_url'    => $variante->getVideoUrl(),
                         'reference'    => $variante->getReference(),
                         'stock'        => $variante->getStock(),
                         'actif'        => $variante->isActif(),

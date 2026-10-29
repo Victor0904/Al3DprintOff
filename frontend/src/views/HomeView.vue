@@ -149,7 +149,7 @@ const getParticleStyle = (i) => {
 
 const loadProducts = async () => {
   try {
-    const r = await fetch('/api/produits')
+    const r = await fetch('/api/produits?actif=true')
     if (r.ok) products.value = await r.json()
   } catch {}
   finally { loading.value = false }

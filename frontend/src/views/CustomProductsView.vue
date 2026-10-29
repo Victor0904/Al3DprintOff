@@ -17,43 +17,43 @@
         <div class="hero-content">
           <div class="hero-tag">
             <span class="tag-dot"></span>
-            <span>Créations Exclusives · Impression 3D Haute Définition</span>
+            <span>Personnalisation 3D · Sur mesure à partir de vos photos</span>
           </div>
 
           <h1 class="hero-title">
-            Vos Projets<br>
-            <span class="title-highlight">Prennent Vie</span>
+            Vos proches,<br>
+            <span class="title-highlight">sculptés en 3D</span>
           </h1>
 
           <p class="hero-desc">
-            Chaque pièce est une œuvre unique, conçue sur mesure et imprimée
-            avec précision. De l'idée à l'objet, nous transformons vos envies
-            en réalité avec les meilleurs matériaux.
+            Statuette, portrait, jeu d'échecs aux visages de votre famille ou
+            mise en situation façon Mont Rushmore : envoyez-nous vos photos,
+            nous modélisons et imprimons une pièce unique.
           </p>
 
           <div class="hero-cta">
             <a href="#products" class="btn-hero-primary">
-              <span>Découvrir la collection</span>
+              <span>Voir les réalisations</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
             </a>
           </div>
 
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Sur mesure</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <span class="stat-number">HD</span>
-              <span class="stat-label">Impression haute résolution</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <span class="stat-number">∞</span>
-              <span class="stat-label">Possibilités créatives</span>
-            </div>
-          </div>
+          <ol class="hero-stats">
+            <li class="stat-item">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Envoyez vos photos</span>
+            </li>
+            <li class="stat-divider" aria-hidden="true"></li>
+            <li class="stat-item">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Validez l'aperçu 3D</span>
+            </li>
+            <li class="stat-divider" aria-hidden="true"></li>
+            <li class="stat-item">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Recevez votre pièce</span>
+            </li>
+          </ol>
         </div>
       </div>
 
@@ -67,30 +67,15 @@
     ══════════════════════════════════════════ -->
     <section class="usp-strip">
       <div class="usp-inner">
-        <div class="usp-item">
-          <span class="usp-icon">⚡</span>
-          <span>Impression ultra-précise</span>
-        </div>
+        <div class="usp-item"><span>Statuettes</span></div>
         <div class="usp-sep">·</div>
-        <div class="usp-item">
-          <span class="usp-icon">🎨</span>
-          <span>Design 100% personnalisé</span>
-        </div>
+        <div class="usp-item"><span>Portraits &amp; bustes</span></div>
         <div class="usp-sep">·</div>
-        <div class="usp-item">
-          <span class="usp-icon">✦</span>
-          <span>Matériaux premium sélectionnés</span>
-        </div>
+        <div class="usp-item"><span>Jeux d'échecs personnalisés</span></div>
         <div class="usp-sep">·</div>
-        <div class="usp-item">
-          <span class="usp-icon">🛡️</span>
-          <span>Qualité garantie</span>
-        </div>
+        <div class="usp-item"><span>Mises en situation</span></div>
         <div class="usp-sep">·</div>
-        <div class="usp-item">
-          <span class="usp-icon">🚀</span>
-          <span>Livraison rapide</span>
-        </div>
+        <div class="usp-item"><span>Droit à l'image respecté</span></div>
       </div>
     </section>
 
@@ -102,10 +87,10 @@
 
         <!-- Titre section -->
         <div class="section-header">
-          <div class="section-tag">Notre collection</div>
-          <h2 class="section-title">Créations <span class="accent">d'Exception</span></h2>
+          <div class="section-tag">Nos réalisations</div>
+          <h2 class="section-title">Choisissez votre <span class="accent">création</span></h2>
           <p class="section-subtitle">
-            Chaque produit est une pièce unique, imaginée et fabriquée avec passion
+            Chaque pièce est modélisée d'après vos photos. Prix indicatifs, devis gratuit avant impression.
           </p>
         </div>
 
@@ -129,18 +114,21 @@
               <img
                 v-if="product.image_principale"
                 :src="getImageUrl(product.image_principale)"
+                :srcset="srcsetFor(getImageUrl(product.image_principale))"
+                sizes="(max-width: 700px) 100vw, 380px"
                 :alt="product.nom"
+                loading="lazy"
                 class="card-img"
                 @error="handleImageError($event)"
               />
               <div v-else class="card-img-placeholder">
-                <span>🎨</span>
+                <img src="/placeholder.svg" alt="">
               </div>
 
               <!-- Overlay hover -->
               <div class="card-overlay">
                 <button class="overlay-btn" @click.stop="viewProduct(product.id)">
-                  Voir le produit
+                  Voir les exemples
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                 </button>
               </div>
@@ -161,18 +149,13 @@
 
               <div class="card-footer">
                 <div class="card-price">
+                  <span class="price-from">À partir de</span>
                   <span class="price-amount">{{ formatPrice(product.prix) }}€</span>
                   <span v-if="isEntreprise" class="price-ttc">TTC</span>
                 </div>
 
-                <button
-                  class="card-cta"
-                  :class="{ disabled: !product.actif }"
-                  @click.stop="addToCart(product)"
-                  :disabled="!product.actif"
-                >
-                  <svg v-if="product.actif" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                  <span>{{ !product.actif ? 'Indisponible' : 'Ajouter' }}</span>
+                <button class="card-cta" @click.stop="viewProduct(product.id)">
+                  <span>Demander un devis</span>
                 </button>
               </div>
             </div>
@@ -184,7 +167,6 @@
 
         <!-- Empty state -->
         <div v-else class="empty-state">
-          <div class="empty-icon">🎨</div>
           <h3>Aucun produit pour le moment</h3>
           <p>Nos créations exclusives arrivent bientôt. Revenez découvrir notre collection premium.</p>
         </div>
@@ -201,15 +183,16 @@
       <div class="container">
         <div class="cta-content">
           <div class="cta-icon">✦</div>
-          <h2 class="cta-title">Vous avez un projet unique en tête ?</h2>
+          <h2 class="cta-title">Une mise en situation, un projet hors norme ?</h2>
           <p class="cta-desc">
-            Nous réalisons vos créations les plus ambitieuses. Contactez-nous
-            pour discuter de votre projet sur mesure.
+            Portrait de famille gravé dans la montagne façon Mont Rushmore, scène
+            de mariage, trophée… Choisissez la statuette personnalisée et décrivez
+            votre idée dans la demande de devis : nous étudions chaque projet.
           </p>
           <div class="cta-actions">
-            <router-link to="/products" class="btn-cta-outline">
-              Voir tous nos produits
-            </router-link>
+            <a href="#products" class="btn-cta-outline">
+              Choisir une création
+            </a>
           </div>
         </div>
       </div>
@@ -221,14 +204,11 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useCartStore } from '../stores/cart'
 import { useAuthStore } from '../stores/auth'
-import { useAlert } from '../composables/useAlert'
+import { srcsetFor } from '../composables/useResponsiveImage'
 
 const router = useRouter()
-const cartStore = useCartStore()
 const authStore = useAuthStore()
-const { success: showSuccess } = useAlert()
 
 const isEntreprise = computed(() => authStore.user?.type_client === 'entreprise')
 
@@ -267,20 +247,13 @@ const getImageUrl = (chemin) => {
 }
 
 const handleImageError = (event) => {
-  event.target.style.display = 'none'
-  const placeholder = event.target.parentElement.querySelector('.card-img-placeholder')
-  if (placeholder) placeholder.style.display = 'flex'
+  event.target.onerror = null
+  event.target.removeAttribute('srcset')
+  event.target.src = '/placeholder.svg'
 }
 
 const viewProduct = (productId) => {
   router.push({ path: `/product/${productId}`, query: { type: 'custom' } })
-}
-
-const addToCart = (product) => {
-  if (product.actif) {
-    cartStore.addToCart(product, 1)
-    showSuccess('Produit ajouté au panier !')
-  }
 }
 
 onMounted(() => {
@@ -681,7 +654,7 @@ onMounted(() => {
 /* Image */
 .card-image {
   position: relative;
-  height: 260px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #1a1a1a;
 }
@@ -1035,4 +1008,7 @@ onMounted(() => {
   }
 
 }
+
+.hero-stats { list-style: none; padding: 0; }
+.price-from { display: block; font-size: 12px; color: var(--text-secondary); }
 </style>

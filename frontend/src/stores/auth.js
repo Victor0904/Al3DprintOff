@@ -108,6 +108,18 @@ export const useAuthStore = defineStore('auth', () => {
     if (savedUser && savedToken) {
       user.value = JSON.parse(savedUser)
       token.value = savedToken
+
+      // Session expirée ou compte supprimé : on déconnecte au lieu d'afficher un faux état connecté
+      fetch(`/api/clients/${user.value.id}`, { headers: { Authorization: `Bearer ${savedToken}` } })
+        .then((res) => {
+          if ([401, 403, 404].includes(res.status)) {
+            user.value = null
+            token.value = null
+            localStorage.removeItem('user')
+            localStorage.removeItem('token')
+          }
+        })
+        .catch(() => {}) // hors ligne : on garde la session locale
     }
   }
 

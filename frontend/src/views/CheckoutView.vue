@@ -443,7 +443,9 @@ const isCartEmpty = computed(() => cartStore.items.length === 0)
           return {
             produit_id: produitId,
             quantite: quantite,
-            personnalisation: item.customization || null
+            personnalisation: item.variante_id
+              ? { variante_id: item.variante_id, variante_nom: item.variante_nom }
+              : null
           }
         })
       }

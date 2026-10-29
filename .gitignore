@@ -5,3 +5,6 @@
 # Secrets
 .env.local
 **/.env.local
+
+# Médias bruts (sources, trop lourds pour git)
+/Figurine3D/

@@ -227,8 +227,9 @@ const currentPage = ref(1)
 const itemsPerPage = 12
 
 // Computed — catégories hiérarchiques
+// Catégories sans produit actif masquées (évite une liste de catégories vides)
 const parentCategories = computed(() =>
-  categories.value.filter(c => !c.parent_id)
+  categories.value.filter(c => !c.parent_id && getCategoryGroupCount(c.id) > 0)
 )
 
 const subcategoriesOfSelected = computed(() => {
@@ -237,7 +238,7 @@ const subcategoriesOfSelected = computed(() => {
 })
 
 const getSubcategories = (parentId) =>
-  categories.value.filter(c => c.parent_id === parentId)
+  categories.value.filter(c => c.parent_id === parentId && getCategoryProductCount(c.id) > 0)
 
 // Computed — prix
 const maxPrice = computed(() =>
@@ -369,7 +370,7 @@ const debouncedSearch = () => {
 // Chargement des données
 const loadProducts = async () => {
   try {
-    const response = await fetch('/api/produits')
+    const response = await fetch('/api/produits?actif=true')
     if (response.ok) {
       products.value = await response.json()
     }

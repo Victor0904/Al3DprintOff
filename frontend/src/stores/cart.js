@@ -154,7 +154,7 @@ export const useCartStore = defineStore('cart', () => {
         variante_nom: varianteNom,
         name: product.nom,
         price: parseFloat(product.prix),
-        image: product.image_principale,
+        image: product.variante_selectionnee?.image_url || product.image_principale,
         quantity: quantity,
         category: product.categorie?.nom || 'Sans catégorie',
         item_id: null

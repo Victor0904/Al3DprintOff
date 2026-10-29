@@ -95,7 +95,7 @@ const router = createRouter({
       name: 'custom-products',
       component: CustomProductsView,
       meta: {
-        title: 'Produits Personnalisés',
+        title: 'Personnalisation 3D',
         description: "Créez vos objets 3D sur mesure avec Al3DPrint. Choisissez parmi nos modèles personnalisables ou envoyez votre propre design.",
         keywords: 'produit personnalisé 3D, objet sur mesure, impression 3D personnalisée'
       }

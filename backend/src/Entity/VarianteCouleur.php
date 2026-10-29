@@ -31,6 +31,9 @@ class VarianteCouleur
     #[ORM\Column(type: 'string', length: 100, nullable: true)]
     private ?string $reference = null; // Référence unique pour cette variante
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $videoUrl = null; // Vidéo 360° (MP4 H.264)
+
     #[ORM\Column(type: 'integer')]
     private int $stock = 0;
 
@@ -160,5 +163,15 @@ class VarianteCouleur
         $this->ordre = $ordre;
         return $this;
     }
-}
 
+    public function getVideoUrl(): ?string
+    {
+        return $this->videoUrl;
+    }
+
+    public function setVideoUrl(?string $videoUrl): self
+    {
+        $this->videoUrl = $videoUrl;
+        return $this;
+    }
+}

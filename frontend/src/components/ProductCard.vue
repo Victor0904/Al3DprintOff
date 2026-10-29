@@ -4,6 +4,8 @@
       <img
         :src="product.image_principale ? getImageUrl(product.image_principale) : '/placeholder.svg'"
         :alt="product.nom"
+        :srcset="srcsetFor(product.image_principale ? getImageUrl(product.image_principale) : '')"
+        sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 380px"
         class="product-img"
         loading="lazy"
         @error="e => { e.target.onerror = null; e.target.src = '/placeholder.svg' }"
@@ -21,6 +23,7 @@
       </div>
       
       <h3 class="product-name">{{ product.nom }}</h3>
+      <p v-if="product.nb_coloris > 1" class="product-colors">{{ product.nb_coloris }} coloris</p>
       
       <p class="product-description" v-if="product.description">
         {{ truncateText(product.description, 100) }}
@@ -40,6 +43,7 @@
           :class="{ 'disabled': !product.actif }"
         >
           <span v-if="!product.actif">Indisponible</span>
+          <span v-else-if="product.nb_coloris > 0" class="btn-label">Choisir</span>
           <span v-else class="btn-label"><Icon name="cart" :size="16" /> Ajouter</span>
         </button>
       </div>
@@ -57,6 +61,7 @@ import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import Icon from './Icon.vue'
+import { srcsetFor } from '../composables/useResponsiveImage'
 
 const props = defineProps({
   product: {
@@ -75,6 +80,8 @@ const isEntreprise = computed(() => authStore.user?.type_client === 'entreprise'
 
 // Méthodes
 const addToCart = () => {
+  // Un produit à coloris se choisit sur sa fiche (sinon la couleur serait perdue)
+  if (props.product.nb_coloris > 0) return viewProduct()
   if (props.product.actif !== false) {
     emit('add-to-cart', props.product)
   }
@@ -137,7 +144,7 @@ const getImageUrl = (chemin) => {
 
 .product-image {
   position: relative;
-  height: 200px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
@@ -349,9 +356,6 @@ const getImageUrl = (chemin) => {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .product-image {
-    height: 150px;
-  }
   
   .product-info {
     padding: 15px;
@@ -372,9 +376,6 @@ const getImageUrl = (chemin) => {
 }
 
 @media (max-width: 480px) {
-  .product-image {
-    height: 120px;
-  }
   
   .product-info {
     padding: 12px;
@@ -420,5 +421,11 @@ const getImageUrl = (chemin) => {
   .product-footer {
     margin-top: auto;
   }
+}
+
+.product-colors {
+  margin: -4px 0 8px;
+  font-size: 12px;
+  color: var(--primary-color);
 }
 </style>

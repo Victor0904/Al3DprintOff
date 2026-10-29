@@ -4,7 +4,7 @@
  */
 
 const SITE_NAME = 'Al3DPrint'
-const BASE_URL  = 'https://al3dprint.fr'
+const BASE_URL  = typeof window !== 'undefined' ? window.location.origin : import.meta.env.VITE_SITE_URL
 
 /**
  * Retourne ou crée une balise <meta> unique identifiée par `attr=value`.

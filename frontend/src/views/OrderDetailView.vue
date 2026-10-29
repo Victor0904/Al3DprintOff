@@ -147,7 +147,10 @@
                   <h3 class="item-name">{{ item.produit.nom }}</h3>
                   <div class="item-price">{{ formatPrice(item.prix_unitaire) }}€</div>
                   
-                  <div v-if="item.personnalisation" class="item-customization">
+                  <p v-if="item.personnalisation?.variante_nom" class="item-customization">
+                    <strong>Coloris :</strong> {{ item.personnalisation.variante_nom }}
+                  </p>
+                  <div v-else-if="item.personnalisation" class="item-customization">
                     <h4>Personnalisation :</h4>
                     <ul>
                       <li v-for="(value, key) in item.personnalisation" :key="key">

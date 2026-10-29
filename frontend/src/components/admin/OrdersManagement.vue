@@ -263,6 +263,9 @@ const formatCustomization = (customization) => {
       return customization
     }
   }
+  if (customization?.variante_nom) {
+    return `Coloris ${customization.variante_nom}`
+  }
   if (typeof customization === 'object') {
     return Object.entries(customization)
       .map(([key, value]) => `${key}: ${value}`)

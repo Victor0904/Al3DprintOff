@@ -1,0 +1,229 @@
+{
+  "cheval": {
+    "arc-en-ciel": {
+      "images": [
+        "catalogue/cheval/arc-en-ciel/01",
+        "catalogue/cheval/arc-en-ciel/02",
+        "catalogue/cheval/arc-en-ciel/03"
+      ],
+      "video": "catalogue/cheval/arc-en-ciel/video.mp4",
+      "poster": "catalogue/cheval/arc-en-ciel/poster.webp",
+      "detoure": true
+    },
+    "orange-bleu-vert": {
+      "images": [
+        "catalogue/cheval/orange-bleu-vert/01",
+        "catalogue/cheval/orange-bleu-vert/02"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    },
+    "rose-rouge-bleu": {
+      "images": [
+        "catalogue/cheval/rose-rouge-bleu/01",
+        "catalogue/cheval/rose-rouge-bleu/02"
+      ],
+      "video": "catalogue/cheval/rose-rouge-bleu/video.mp4",
+      "poster": "catalogue/cheval/rose-rouge-bleu/poster.webp",
+      "detoure": true
+    },
+    "mauve-bleu-vert": {
+      "images": [
+        "catalogue/cheval/mauve-bleu-vert/01"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    },
+    "mauve-bleu": {
+      "images": [
+        "catalogue/cheval/mauve-bleu/01"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    }
+  },
+  "chien": {
+    "rose-rouge-bleu": {
+      "images": [
+        "catalogue/chien/rose-rouge-bleu/01",
+        "catalogue/chien/rose-rouge-bleu/02"
+      ],
+      "video": "catalogue/chien/rose-rouge-bleu/video.mp4",
+      "poster": "catalogue/chien/rose-rouge-bleu/poster.webp",
+      "detoure": true
+    }
+  },
+  "lapin": {
+    "arc-en-ciel": {
+      "images": [
+        "catalogue/lapin/arc-en-ciel/01",
+        "catalogue/lapin/arc-en-ciel/02",
+        "catalogue/lapin/arc-en-ciel/03",
+        "catalogue/lapin/arc-en-ciel/04",
+        "catalogue/lapin/arc-en-ciel/05",
+        "catalogue/lapin/arc-en-ciel/06"
+      ],
+      "video": "catalogue/lapin/arc-en-ciel/video.mp4",
+      "poster": "catalogue/lapin/arc-en-ciel/poster.webp",
+      "detoure": true
+    },
+    "orange-bleu-vert": {
+      "images": [
+        "catalogue/lapin/orange-bleu-vert/01",
+        "catalogue/lapin/orange-bleu-vert/02",
+        "catalogue/lapin/orange-bleu-vert/03"
+      ],
+      "video": "catalogue/lapin/orange-bleu-vert/video.mp4",
+      "poster": "catalogue/lapin/orange-bleu-vert/poster.webp",
+      "detoure": true
+    },
+    "rose-rouge-bleu": {
+      "images": [
+        "catalogue/lapin/rose-rouge-bleu/01",
+        "catalogue/lapin/rose-rouge-bleu/02",
+        "catalogue/lapin/rose-rouge-bleu/03",
+        "catalogue/lapin/rose-rouge-bleu/04"
+      ],
+      "video": "catalogue/lapin/rose-rouge-bleu/video.mp4",
+      "poster": "catalogue/lapin/rose-rouge-bleu/poster.webp",
+      "detoure": true
+    },
+    "mauve-bleu": {
+      "images": [
+        "catalogue/lapin/mauve-bleu/01"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    },
+    "mauve-vert": {
+      "images": [
+        "catalogue/lapin/mauve-vert/01"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    },
+    "twist-vert-bleu": {
+      "images": [
+        "catalogue/lapin/twist-vert-bleu/01",
+        "catalogue/lapin/twist-vert-bleu/02",
+        "catalogue/lapin/twist-vert-bleu/03"
+      ],
+      "video": "catalogue/lapin/twist-vert-bleu/video.mp4",
+      "poster": "catalogue/lapin/twist-vert-bleu/poster.webp",
+      "detoure": true
+    }
+  },
+  "ours": {
+    "orange-bleu-vert": {
+      "images": [
+        "catalogue/ours/orange-bleu-vert/01",
+        "catalogue/ours/orange-bleu-vert/02",
+        "catalogue/ours/orange-bleu-vert/03"
+      ],
+      "video": "catalogue/ours/orange-bleu-vert/video.mp4",
+      "poster": "catalogue/ours/orange-bleu-vert/poster.webp",
+      "detoure": true
+    },
+    "rose-rouge-bleu": {
+      "images": [
+        "catalogue/ours/rose-rouge-bleu/01",
+        "catalogue/ours/rose-rouge-bleu/02"
+      ],
+      "video": "catalogue/ours/rose-rouge-bleu/video.mp4",
+      "poster": "catalogue/ours/rose-rouge-bleu/poster.webp",
+      "detoure": true
+    },
+    "mauve-bleu": {
+      "images": [
+        "catalogue/ours/mauve-bleu/01"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    }
+  },
+  "siege-baquet": {
+    "bleu-vert-orange": {
+      "images": [
+        "catalogue/siege-baquet/bleu-vert-orange/01",
+        "catalogue/siege-baquet/bleu-vert-orange/02"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    },
+    "mauve-bleu": {
+      "images": [
+        "catalogue/siege-baquet/mauve-bleu/01",
+        "catalogue/siege-baquet/mauve-bleu/02"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    },
+    "mauve-bleu-vert": {
+      "images": [
+        "catalogue/siege-baquet/mauve-bleu-vert/01"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    },
+    "twist": {
+      "images": [
+        "catalogue/siege-baquet/twist/01",
+        "catalogue/siege-baquet/twist/02"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": true
+    }
+  },
+  "perso-echecs": {
+    "defaut": {
+      "images": [
+        "catalogue/perso-echecs/defaut/01",
+        "catalogue/perso-echecs/defaut/02",
+        "catalogue/perso-echecs/defaut/03",
+        "catalogue/perso-echecs/defaut/04",
+        "catalogue/perso-echecs/defaut/05",
+        "catalogue/perso-echecs/defaut/06",
+        "catalogue/perso-echecs/defaut/07",
+        "catalogue/perso-echecs/defaut/08",
+        "catalogue/perso-echecs/defaut/09",
+        "catalogue/perso-echecs/defaut/10"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": false
+    }
+  },
+  "perso-halterophile": {
+    "defaut": {
+      "images": [
+        "catalogue/perso-halterophile/defaut/01",
+        "catalogue/perso-halterophile/defaut/02",
+        "catalogue/perso-halterophile/defaut/03",
+        "catalogue/perso-halterophile/defaut/04"
+      ],
+      "video": "catalogue/perso-halterophile/defaut/video.mp4",
+      "poster": "catalogue/perso-halterophile/defaut/poster.webp",
+      "detoure": false
+    }
+  },
+  "perso-buste": {
+    "defaut": {
+      "images": [
+        "catalogue/perso-buste/defaut/01"
+      ],
+      "video": null,
+      "poster": null,
+      "detoure": false
+    }
+  }
+}

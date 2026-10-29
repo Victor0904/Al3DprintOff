@@ -15,13 +15,13 @@
     <meta name="keywords" content="impression 3D, personnalisation, figurines, prototypes, objets 3D, al3dprint">
     <meta name="author" content="Al3DPrint">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://al3dprint.fr/">
+    <link rel="canonical" href="%VITE_SITE_URL%/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Al3DPrint — Impression 3D Personnalisée">
     <meta property="og:description" content="L'avenir de l'impression 3D à votre portée. Produits innovants et personnalisables.">
-    <meta property="og:image" content="https://al3dprint.fr/logo.png">
-    <meta property="og:url" content="https://al3dprint.fr/">
+    <meta property="og:image" content="%VITE_SITE_URL%/logo.png">
+    <meta property="og:url" content="%VITE_SITE_URL%/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Al3DPrint">
     <meta property="og:locale" content="fr_FR">
@@ -30,7 +30,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Al3DPrint — Impression 3D Personnalisée">
     <meta name="twitter:description" content="L'avenir de l'impression 3D à votre portée. Produits innovants et personnalisables.">
-    <meta name="twitter:image" content="https://al3dprint.fr/logo.png">
+    <meta name="twitter:image" content="%VITE_SITE_URL%/logo.png">
 
     <!-- JSON-LD : Organisation + WebSite -->
     <script type="application/ld+json">
@@ -39,12 +39,12 @@
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://al3dprint.fr/#organization",
+          "@id": "%VITE_SITE_URL%/#organization",
           "name": "Al3DPrint",
-          "url": "https://al3dprint.fr",
+          "url": "%VITE_SITE_URL%",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://al3dprint.fr/logo.png"
+            "url": "%VITE_SITE_URL%/logo.png"
           },
           "description": "Spécialiste de l'impression 3D personnalisée en France.",
           "contactPoint": {
@@ -55,15 +55,15 @@
         },
         {
           "@type": "WebSite",
-          "@id": "https://al3dprint.fr/#website",
-          "url": "https://al3dprint.fr",
+          "@id": "%VITE_SITE_URL%/#website",
+          "url": "%VITE_SITE_URL%",
           "name": "Al3DPrint",
-          "publisher": { "@id": "https://al3dprint.fr/#organization" },
+          "publisher": { "@id": "%VITE_SITE_URL%/#organization" },
           "potentialAction": {
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": "https://al3dprint.fr/products?search={search_term_string}"
+              "urlTemplate": "%VITE_SITE_URL%/products?search={search_term_string}"
             },
             "query-input": "required name=search_term_string"
           }

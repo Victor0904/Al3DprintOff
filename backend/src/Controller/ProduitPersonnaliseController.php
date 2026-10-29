@@ -56,6 +56,7 @@ class ProduitPersonnaliseController extends AbstractController
                         'nom' => $produit->getCategorie()->getNom()
                     ] : null,
                     'image_principale' => $produit->getImagePrincipale(),
+                    'video_url' => $produit->getVideoUrl(),
                     'images' => array_map(
                         fn($img) => ['id' => $img->getId(), 'url' => $img->getUrl(), 'ordre' => $img->getOrdre()],
                         $produit->getImagesPersonnalise()->toArray()
@@ -91,6 +92,7 @@ class ProduitPersonnaliseController extends AbstractController
                 'nom' => $produit->getCategorie()->getNom()
             ] : null,
             'image_principale' => $produit->getImagePrincipale(),
+            'video_url' => $produit->getVideoUrl(),
             'images' => array_map(
                 fn($img) => ['id' => $img->getId(), 'url' => $img->getUrl(), 'ordre' => $img->getOrdre()],
                 $produit->getImagesPersonnalise()->toArray()
@@ -156,6 +158,7 @@ class ProduitPersonnaliseController extends AbstractController
                 'stock' => $produit->getStock(),
                 'categorie_id' => $produit->getCategorie()?->getId(),
                 'image_principale' => $produit->getImagePrincipale(),
+                'video_url' => $produit->getVideoUrl(),
                 'images' => array_map(
                     fn($img) => ['id' => $img->getId(), 'url' => $img->getUrl(), 'ordre' => $img->getOrdre()],
                     $produit->getImagesPersonnalise()->toArray()
@@ -229,6 +232,7 @@ class ProduitPersonnaliseController extends AbstractController
             'stock' => $produit->getStock(),
             'categorie_id' => $produit->getCategorie()?->getId(),
             'image_principale' => $produit->getImagePrincipale(),
+            'video_url' => $produit->getVideoUrl(),
             'images' => array_map(
                 fn($img) => ['id' => $img->getId(), 'url' => $img->getUrl(), 'ordre' => $img->getOrdre()],
                 $produit->getImagesPersonnalise()->toArray()

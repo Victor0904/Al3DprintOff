@@ -13,7 +13,7 @@
         <div class="nav-links">
           <router-link to="/" class="nav-link">Accueil</router-link>
           <router-link to="/products" class="nav-link">Produits</router-link>
-          <router-link to="/custom-products" class="nav-link">Personnalisés</router-link>
+          <router-link to="/custom-products" class="nav-link">Personnalisation 3D</router-link>
           <router-link v-if="isAdmin" to="/admin" class="admin-nav-link">🔐 Admin</router-link>
         </div>
 
@@ -93,7 +93,7 @@
               <span class="m-link-icon">◈</span> Produits
             </router-link>
             <router-link to="/custom-products" class="m-link" @click="closeMobileMenu">
-              <span class="m-link-icon">✦</span> Personnalisés
+              <span class="m-link-icon">✦</span> Personnalisation 3D
             </router-link>
             <router-link v-if="isAdmin" to="/admin" class="m-link m-admin" @click="closeMobileMenu">
               <span class="m-link-icon">🔐</span> Admin

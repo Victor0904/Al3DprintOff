@@ -21,6 +21,12 @@ class CustomOrderFilesController extends AbstractController
     #[Route('/api/custom-order-files', name: 'custom_order_files', methods: ['POST'])]
     public function sendFiles(Request $request): JsonResponse
     {
+        // Sans e-mail valide, impossible de recontacter le client pour le devis
+        $clientEmail = trim((string) $request->request->get('client_email', ''));
+        if (!filter_var($clientEmail, FILTER_VALIDATE_EMAIL)) {
+            return new JsonResponse(['error' => 'Adresse e-mail invalide'], 400);
+        }
+
         $rawFiles = $request->files->get('files');
         if (!$rawFiles) {
             return new JsonResponse(['error' => 'Aucun fichier reçu'], 400);
@@ -73,9 +79,9 @@ class CustomOrderFilesController extends AbstractController
 
         // ── Sauvegarde en base de données ────────────────────────────────────────
         $productName = $request->request->get('product_name', 'Produit personnalisé');
-        $clientEmail = $request->request->get('client_email', 'non renseigné');
         $clientNom   = $request->request->get('client_nom', 'Client');
         $productId   = $request->request->get('product_id');
+        $message     = trim((string) $request->request->get('message', ''));
 
         $demande = new DemandePersonnalisation();
         $demande->setProductName($productName);
@@ -83,6 +89,9 @@ class CustomOrderFilesController extends AbstractController
         $demande->setClientNom($clientNom);
         $demande->setProductId($productId ? (int) $productId : null);
         $demande->setFichiers($savedPaths);
+        if ($message !== '') {
+            $demande->setNotes('Message du client : ' . mb_substr($message, 0, 2000));
+        }
 
         $this->entityManager->persist($demande);
         $this->entityManager->flush();

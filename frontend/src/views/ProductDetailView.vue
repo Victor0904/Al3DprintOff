@@ -27,56 +27,37 @@
 
         <div class="product-content">
           <!-- Images -->
-            <div class="product-images">
-            <div class="main-image">
-              <img 
-                v-if="currentImage" 
-                :src="currentImage" 
-                :alt="product.nom"
-                class="product-img" @error="e => { e.target.onerror = null; e.target.src = '/placeholder.svg' }"
-              >
-              <div v-else class="image-placeholder">
-                <img src="/placeholder.svg" alt="" class="placeholder-img">
-              </div>
-            </div>
-            
-            <!-- Bande de miniatures -->
-            <div v-if="galleryImages.length > 1" class="thumbnail-strip">
-              <button
-                v-for="(img, idx) in galleryImages"
-                :key="idx"
-                :class="['thumb-btn', { active: currentImage === getImageUrl(img.url) }]"
-                @click="currentImage = getImageUrl(img.url)"
-                type="button"
-              >
-                <img :src="getImageUrl(img.url)" class="thumb-img" @error="e => { e.target.onerror = null; e.target.src = '/placeholder.svg' }">
-              </button>
-            </div>
+          <div class="product-images">
+            <ProductGallery
+              :images="galleryUrls"
+              :video="currentVideo"
+              :alt="selectedVariante ? `${product.nom} — ${selectedVariante.nom_couleur}` : product.nom"
+            />
 
             <!-- Variantes de couleur -->
             <div v-if="product.variantes_couleur && product.variantes_couleur.length > 0" class="color-variants">
-              <div class="variants-header">
-                <h4 class="variants-title">Couleurs disponibles</h4>
-                <button
-                  v-if="selectedVariante !== null"
-                  @click="resetVariante"
-                  class="reset-variant-btn"
-                  title="Retour au produit original"
-                >
-                  ↩ Produit original
-                </button>
-              </div>
+              <h4 class="variants-title">
+                Coloris : <span class="variant-current">{{ selectedVariante?.nom_couleur }}</span>
+              </h4>
               <div class="variants-list">
                 <button
                   v-for="variante in product.variantes_couleur"
                   :key="variante.id"
+                  type="button"
                   @click="selectVariante(variante)"
-                  :class="['variant-btn', { 'active': selectedVariante?.id === variante.id }]"
-                  :style="{ backgroundColor: variante.code_couleur || '#333' }"
+                  :class="['variant-swatch', { active: selectedVariante?.id === variante.id }]"
                   :title="variante.nom_couleur"
+                  :aria-label="`Coloris ${variante.nom_couleur}`"
+                  :aria-pressed="selectedVariante?.id === variante.id"
                   :disabled="!variante.actif"
                 >
-                  <span class="variant-name">{{ variante.nom_couleur }}</span>
+                  <img
+                    v-if="variante.image_url"
+                    :src="sizedUrl(getImageUrl(variante.image_url), 400)"
+                    alt=""
+                    loading="lazy"
+                  >
+                  <span v-else class="swatch-dot" :style="{ backgroundColor: variante.code_couleur || '#333' }"></span>
                 </button>
               </div>
             </div>
@@ -94,6 +75,7 @@
                 <span class="reference-value">{{ selectedVariante.reference }}</span>
               </div>
               <div class="product-price">
+                <span v-if="isCustomProduct" class="price-from">À partir de</span>
                 <span class="price-amount">{{ formatPrice(product.prix) }}</span>
                 <span class="price-currency">€</span>
                 <span v-if="isEntreprise" class="price-ttc"> TTC</span>
@@ -122,7 +104,7 @@
                 <span class="notice-icon">🎨</span>
                 <div>
                   <strong>Produit personnalisé</strong>
-                  <p>L'image présentée est un exemple. Vous ne recevrez pas ce produit avec cette image. Envoyez vos propres photos (PNG ou JPEG) pour que nous puissions créer votre produit sur mesure.</p>
+                  <p>Les photos présentées sont des exemples de réalisations. Envoyez-nous vos photos (PNG ou JPEG) et décrivez votre projet : nous revenons vers vous par e-mail avec un devis et un aperçu avant impression. Vos photos ne servent qu'à votre commande, dans le respect du droit à l'image.</p>
                 </div>
               </div>
 
@@ -145,7 +127,7 @@
                 >
                 <div v-if="filesSent" class="upload-state">
                   <span class="state-icon">✅</span>
-                  <p>Photos envoyées à l'admin avec succès !</p>
+                  <p>Demande envoyée ! Nous revenons vers vous par e-mail avec un devis.</p>
                 </div>
                 <div v-else-if="uploadedFiles.length === 0" class="upload-state">
                   <span class="state-icon">📁</span>
@@ -170,11 +152,11 @@
               </div>
 
               <p v-if="!filesSent && uploadedFiles.length === 0" class="upload-required-hint">
-                ⚠️ Ajoutez au moins une photo pour pouvoir commander ce produit
+                Ajoutez au moins une photo pour envoyer votre demande
               </p>
             </div>
 
-            <div class="product-actions">
+            <div v-if="!isCustomProduct" class="product-actions">
               <div class="quantity-selector">
                 <label for="quantity">Quantité</label>
                 <div class="quantity-controls">
@@ -208,11 +190,31 @@
                 :disabled="!canAddToCart || addingToCart"
               >
                 <span v-if="!product.actif">Produit indisponible</span>
-                <span v-else-if="addingToCart">⏳ Envoi en cours…</span>
-                <span v-else-if="isCustomProduct && uploadedFiles.length === 0">📁 Ajoutez vos photos d'abord</span>
-                <span v-else>🛒 Ajouter au panier</span>
+                <span v-else>Ajouter au panier</span>
               </button>
+              <ul class="delivery-info">
+                <li>Livraison offerte dès 50 € d'achat</li>
+                <li>Expédition sous 5 à 8 jours</li>
+                <li>Paiement sécurisé par carte</li>
+              </ul>
             </div>
+
+            <form v-else-if="!filesSent" class="product-actions quote-form" @submit.prevent="sendQuote">
+              <label for="quote-email">Votre e-mail</label>
+              <input id="quote-email" v-model="quoteEmail" type="email" required autocomplete="email" class="quote-input">
+              <label for="quote-message">Votre projet</label>
+              <textarea
+                id="quote-message"
+                v-model="quoteMessage"
+                rows="4"
+                maxlength="2000"
+                class="quote-input"
+                placeholder="Qui représenter, pose souhaitée, taille, couleur, délai…"
+              ></textarea>
+              <button type="submit" class="btn btn-primary add-to-cart-btn" :disabled="!canSendQuote || addingToCart">
+                {{ addingToCart ? 'Envoi en cours…' : 'Envoyer ma demande de devis' }}
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -227,6 +229,8 @@ import { useCartStore } from '../stores/cart'
 import { useAuthStore } from '../stores/auth'
 import { useAlert } from '../composables/useAlert'
 import { useSeo, BASE_URL } from '../composables/useSeo'
+import { sizedUrl } from '../composables/useResponsiveImage'
+import ProductGallery from '../components/ProductGallery.vue'
 
 const route = useRoute()
 const cartStore = useCartStore()
@@ -239,7 +243,6 @@ const loading = ref(true)
 const product = ref(null)
 const quantity = ref(1)
 const selectedVariante = ref(null)
-const currentImage = ref(null)
 
 // ── Produit personnalisé — upload fichiers ─────────────────────────────────
 const isCustomProduct = computed(() => route.query.type === 'custom')
@@ -291,13 +294,17 @@ const galleryImages = computed(() => {
   return []
 })
 
+const galleryUrls = computed(() => galleryImages.value.map(i => getImageUrl(i.url)))
+const currentVideo = computed(() => selectedVariante.value?.video_url || product.value?.video_url || null)
+
 const maxQuantity = computed(() => 99)
 
-const canAddToCart = computed(() => {
-  if (!product.value?.actif) return false
-  if (isCustomProduct.value && uploadedFiles.value.length === 0) return false
-  return true
-})
+const canAddToCart = computed(() => !!product.value?.actif)
+
+// Demande de devis (produits personnalisés)
+const quoteEmail = ref(authStore.user?.email || '')
+const quoteMessage = ref('')
+const canSendQuote = computed(() => uploadedFiles.value.length > 0 && /\S+@\S+\.\S+/.test(quoteEmail.value))
 
 const loadProduct = async () => {
   try {
@@ -308,10 +315,8 @@ const loadProduct = async () => {
     const response = await fetch(endpoint)
     if (response.ok) {
       product.value = await response.json()
-      const firstGallery = product.value.images && product.value.images.length > 0
-        ? product.value.images[0].url
-        : null
-      currentImage.value = getImageUrl(firstGallery || product.value.image_principale)
+      const premiere = product.value.variantes_couleur?.find(v => v.actif)
+      if (premiere) selectVariante(premiere)
 
       // SEO dynamique — titre + description + JSON-LD Product
       const p = product.value
@@ -371,58 +376,42 @@ const getImageUrl = (chemin) => {
 
 const selectVariante = (variante) => {
   selectedVariante.value = variante
-  const firstImg = variante.images && variante.images.length > 0
-    ? variante.images[0].url
-    : null
-  currentImage.value = getImageUrl(firstImg || variante.image_url || product.value.image_principale)
 }
 
-const resetVariante = () => {
-  selectedVariante.value = null
-  const firstImg = product.value.images && product.value.images.length > 0
-    ? product.value.images[0].url
-    : null
-  currentImage.value = getImageUrl(firstImg || product.value.image_principale)
-  quantity.value = 1
-}
-
-const addToCart = async () => {
-  if (!canAddToCart.value || addingToCart.value) return
-  addingToCart.value = true
-
-  // Pour les produits personnalisés : envoyer les fichiers à l'admin d'abord
-  if (isCustomProduct.value && !filesSent.value && uploadedFiles.value.length > 0) {
-    const formData = new FormData()
-    uploadedFiles.value.forEach(f => formData.append('files[]', f))
-    formData.append('product_name', product.value.nom)
-    formData.append('product_id',   product.value.id)
-    formData.append('client_email', authStore.user?.email || 'non renseigné')
-    formData.append('client_nom',   authStore.user?.nom   || 'Client')
-    try {
-      const res = await fetch('/api/custom-order-files', { method: 'POST', body: formData })
-      if (!res.ok) throw new Error()
-      filesSent.value = true
-    } catch {
-      showError("Erreur lors de l'envoi des fichiers. Veuillez réessayer.")
-      addingToCart.value = false
-      return
-    }
-  }
-
-  const productToAdd = {
+const addToCart = () => {
+  if (!canAddToCart.value) return
+  cartStore.addToCart({
     ...product.value,
     variante_selectionnee: selectedVariante.value ? {
       id: selectedVariante.value.id,
       nom_couleur: selectedVariante.value.nom_couleur,
-      reference: selectedVariante.value.reference
+      reference: selectedVariante.value.reference,
+      image_url: selectedVariante.value.image_url
     } : null
+  }, quantity.value)
+  showSuccess('Produit ajouté au panier !')
+}
+
+const sendQuote = async () => {
+  if (!canSendQuote.value || addingToCart.value) return
+  addingToCart.value = true
+  const formData = new FormData()
+  uploadedFiles.value.forEach(f => formData.append('files[]', f))
+  formData.append('product_name', product.value.nom)
+  formData.append('product_id', product.value.id)
+  formData.append('client_email', quoteEmail.value)
+  formData.append('client_nom', authStore.user?.nom || 'Client')
+  formData.append('message', quoteMessage.value)
+  try {
+    const res = await fetch('/api/custom-order-files', { method: 'POST', body: formData })
+    if (!res.ok) throw new Error()
+    filesSent.value = true
+    showSuccess('Demande envoyée ! Nous revenons vers vous par e-mail avec un devis.')
+  } catch {
+    showError("Erreur lors de l'envoi de votre demande. Veuillez réessayer.")
+  } finally {
+    addingToCart.value = false
   }
-  cartStore.addToCart(productToAdd, quantity.value)
-  addingToCart.value = false
-  showSuccess(isCustomProduct.value
-    ? 'Vos photos ont été envoyées à l\'admin et le produit a été ajouté au panier !'
-    : 'Produit ajouté au panier !'
-  )
 }
 
 const increaseQuantity = () => {
@@ -516,6 +505,9 @@ onUnmounted(() => {
   gap: 60px;
 }
 
+/* Sans ça, la bande de miniatures élargit la colonne et la page déborde sur mobile */
+.product-content > * { min-width: 0; }
+
 .product-images {
   display: flex;
   flex-direction: column;
@@ -526,12 +518,6 @@ onUnmounted(() => {
   margin-top: 20px;
 }
 
-.variants-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
 
 .variants-title {
   color: var(--text-primary);
@@ -540,21 +526,7 @@ onUnmounted(() => {
   margin: 0;
 }
 
-.reset-variant-btn {
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
 
-.reset-variant-btn:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-}
 
 .variants-list {
   display: flex;
@@ -562,48 +534,10 @@ onUnmounted(() => {
   gap: 10px;
 }
 
-.variant-btn {
-  min-width: 80px;
-  height: 50px;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 8px 12px;
-  transition: all 0.3s ease;
-  position: relative;
-  background: var(--dark-secondary);
-  color: white;
-  font-size: 12px;
-  font-weight: 600;
-}
 
-.variant-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(208, 255, 89, 0.3);
-  border-color: var(--primary-color);
-}
 
-.variant-btn.active {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 15px rgba(208, 255, 89, 0.5);
-  transform: scale(1.05);
-}
 
-.variant-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  position: relative;
-}
 
-.variant-name {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-  font-size: 11px;
-}
 
 
 .product-reference {
@@ -629,30 +563,8 @@ onUnmounted(() => {
   font-family: monospace;
 }
 
-.main-image {
-  width: 100%;
-  height: 400px;
-  border-radius: 15px;
-  overflow: hidden;
-  background: rgba(20, 20, 20, 0.8);
-  border: 1px solid var(--border-color);
-}
 
-.product-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  background: #111;
-}
 
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .placeholder-icon {
   font-size: 64px;
@@ -831,42 +743,10 @@ onUnmounted(() => {
   cursor: not-allowed;
 }
 
-.thumbnail-strip {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
 
-.thumb-btn {
-  width: 70px;
-  height: 70px;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  padding: 0;
-  background: none;
-  transition: border-color 0.2s;
-}
 
-.thumb-btn:hover,
-.thumb-btn.active {
-  border-color: var(--primary-color);
-}
 
-.thumb-btn.active {
-  box-shadow: 0 0 8px rgba(208, 255, 89, 0.5);
-}
 
-.thumb-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  display: block;
-  background: #111;
-}
 
 /* ── Section upload produit personnalisé ───────────────────────────────── */
 .custom-upload-section {
@@ -1035,17 +915,12 @@ onUnmounted(() => {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
-  .main-image {
-    height: 300px;
-  }
 }
 
 @media (max-width: 768px) {
   .product-detail-page { padding: 24px 0; }
   .product-title  { font-size: 22px; }
   .price-amount   { font-size: 26px; }
-  .main-image     { height: 240px; }
   .product-actions { padding: 18px; gap: 16px; }
   .spec-item { padding: 12px; }
   .breadcrumb { font-size: 13px; }
@@ -1063,13 +938,8 @@ onUnmounted(() => {
   .product-title  { font-size: 20px; }
   .price-amount   { font-size: 24px; }
   .price-currency { font-size: 16px; }
-  .main-image     { height: 200px; border-radius: 10px; }
   .product-content { gap: 24px; }
   .product-info   { gap: 20px; }
-
-  .thumb-btn { width: 58px; height: 58px; }
-
-  .variant-btn { min-width: 68px; height: 44px; font-size: 11px; }
 
   .quantity-btn   { width: 36px; height: 36px; font-size: 16px; }
   .quantity-input { width: 60px; height: 36px; font-size: 14px; }
@@ -1082,4 +952,53 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
 }
+
+.variants-title { margin-bottom: 12px; }
+.variant-current { color: var(--primary-color); font-weight: 600; }
+.variants-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.variant-swatch {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--surface);
+  border: 2px solid var(--border-color);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.variant-swatch img { width: 100%; height: 100%; object-fit: contain; }
+.variant-swatch:hover:not(:disabled) { transform: translateY(-2px); border-color: rgba(208, 255, 89, 0.5); }
+.variant-swatch.active { border-color: var(--primary-color); }
+.variant-swatch:disabled { opacity: 0.35; cursor: not-allowed; }
+.swatch-dot { display: block; width: 100%; height: 100%; }
+@media (max-width: 600px) {
+  .variant-swatch { width: 56px; height: 56px; }
+}
+
+.price-from { color: var(--text-secondary); font-size: 14px; margin-right: 6px; }
+.delivery-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.delivery-info li::before { content: '✓ '; color: var(--primary-color); }
+.quote-form { display: flex; flex-direction: column; gap: 8px; }
+.quote-form label { font-size: 13px; color: var(--text-secondary); }
+.quote-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  font: inherit;
+  resize: vertical;
+}
+.quote-input:focus { outline: none; border-color: var(--primary-color); }
+.quote-form .add-to-cart-btn { margin-top: 8px; }
 </style>

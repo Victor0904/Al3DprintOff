@@ -17,7 +17,7 @@
             <ul class="footer-links">
               <li><router-link to="/" class="footer-link">Accueil</router-link></li>
               <li><router-link to="/products" class="footer-link">Produits</router-link></li>
-              <li><router-link to="/custom-products" class="footer-link">Personnalisés</router-link></li>
+              <li><router-link to="/custom-products" class="footer-link">Personnalisation 3D</router-link></li>
               <li><router-link to="/about" class="footer-link">À propos</router-link></li>
             </ul>
           </div>
@@ -33,21 +33,13 @@
           </div>
 
           <div class="footer-section">
-            <h4 class="footer-subtitle">Newsletter</h4>
-            <p class="newsletter-text">
-              Restez informé des dernières nouveautés et offres spéciales.
-            </p>
-            <div class="newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Votre email" 
-                class="newsletter-input"
-                v-model="email"
-              >
-              <button class="newsletter-btn" @click="subscribeNewsletter">
-                S'abonner
-              </button>
-            </div>
+            <h4 class="footer-subtitle">Livraison</h4>
+            <ul class="footer-links footer-info">
+              <li>Livraison offerte dès 50 €</li>
+              <li>Expédition sous 5 à 8 jours</li>
+              <li>Paiement sécurisé par Stripe</li>
+              <li>Droit à l'image respecté</li>
+            </ul>
           </div>
         </div>
 
@@ -75,20 +67,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useAlert } from '../composables/useAlert'
-
-const email = ref('')
-const { success: showSuccess } = useAlert()
-
-const subscribeNewsletter = () => {
-  if (email.value) {
-    // Ici on pourrait intégrer avec l'API pour l'inscription à la newsletter
-    showSuccess('Merci pour votre inscription à la newsletter !')
-    email.value = ''
-  }
-}
-
 const getParticleStyle = (index) => {
   const delay = Math.random() * 5
   const duration = 3 + Math.random() * 4
@@ -211,52 +189,12 @@ const getParticleStyle = (index) => {
   left: -10px;
 }
 
-.newsletter-text {
-  color: var(--text-secondary);
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
 
-.newsletter-form {
-  display: flex;
-  gap: 10px;
-}
 
-.newsletter-input {
-  flex: 1;
-  background: rgba(20, 20, 20, 0.8);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 12px 15px;
-  color: var(--text-primary);
-  transition: all 0.3s ease;
-}
 
-.newsletter-input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 10px var(--glow-color);
-}
 
-.newsletter-input::placeholder {
-  color: var(--text-secondary);
-}
 
-.newsletter-btn {
-  background: var(--primary-color);
-  color: #050505;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
 
-.newsletter-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px var(--glow-color);
-}
 
 .footer-bottom {
   border-top: 1px solid var(--border-color);
@@ -354,8 +292,6 @@ const getParticleStyle = (index) => {
     gap: 12px 20px;
   }
 
-  .newsletter-form { flex-direction: column; }
-
   .social-links { justify-content: center; }
 }
 
@@ -381,5 +317,10 @@ const getParticleStyle = (index) => {
   .copyright { font-size: 12px; }
 
   .social-link { width: 36px; height: 36px; font-size: 16px; }
+}
+
+.footer-info li {
+  color: var(--text-secondary);
+  font-size: 14px;
 }
 </style>
