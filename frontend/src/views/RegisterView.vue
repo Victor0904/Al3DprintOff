@@ -255,7 +255,7 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr;
   max-width: 1000px;
   width: 100%;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 20px;
   overflow: hidden;
@@ -320,7 +320,7 @@ onMounted(() => {
   align-items: flex-start;
   gap: 4px;
   padding: 12px 16px;
-  background: rgba(26, 26, 46, 0.6);
+  background: rgba(20, 20, 20, 0.6);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   cursor: pointer;
@@ -348,7 +348,7 @@ onMounted(() => {
 
 .form-input,
 .form-textarea {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 10px 12px;
@@ -460,7 +460,7 @@ onMounted(() => {
 }
 
 .auth-divider span {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   color: var(--text-secondary);
   padding: 0 15px;
   font-size: 12px;
@@ -480,7 +480,7 @@ onMounted(() => {
   padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -489,7 +489,7 @@ onMounted(() => {
 
 .social-btn:hover {
   border-color: var(--primary-color);
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .social-icon {

@@ -197,9 +197,9 @@ onMounted(() => {
 
 .dashboard-header h2 {
   font-size: 32px;
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0 0 10px 0;
-  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+  text-shadow: 0 0 15px rgba(208, 255, 89, 0.5);
 }
 
 .dashboard-header p {
@@ -215,8 +215,8 @@ onMounted(() => {
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid #2e2e4a;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 1px solid var(--surface-2);
   border-radius: 15px;
   padding: 25px;
   display: flex;
@@ -227,8 +227,8 @@ onMounted(() => {
 
 .stat-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(208, 255, 89, 0.2);
+  border-color: var(--primary-color);
 }
 
 .stat-icon {
@@ -238,13 +238,13 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   border-radius: 50%;
 }
 
 .stat-content h3 {
   font-size: 28px;
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-weight: bold;
 }
@@ -256,14 +256,14 @@ onMounted(() => {
 }
 
 .quick-actions {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid #2e2e4a;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 1px solid var(--surface-2);
   border-radius: 15px;
   padding: 25px;
 }
 
 .quick-actions h3 {
-  color: #4ecdc4;
+  color: var(--accent-color);
   margin: 0 0 20px 0;
   font-size: 20px;
 }
@@ -275,7 +275,7 @@ onMounted(() => {
 }
 
 .action-btn {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
   border-radius: 10px;
@@ -290,7 +290,7 @@ onMounted(() => {
 
 .action-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(208, 255, 89, 0.4);
 }
 
 .action-icon {
@@ -298,14 +298,14 @@ onMounted(() => {
 }
 
 .recent-section {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid #2e2e4a;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 1px solid var(--surface-2);
   border-radius: 15px;
   padding: 25px;
 }
 
 .recent-section h3 {
-  color: #4ecdc4;
+  color: var(--accent-color);
   margin: 0 0 20px 0;
   font-size: 20px;
 }
@@ -321,9 +321,9 @@ onMounted(() => {
   align-items: center;
   gap: 15px;
   padding: 15px;
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border-radius: 10px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .product-image {
@@ -359,8 +359,8 @@ onMounted(() => {
 }
 
 .product-status.active {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  background: rgba(204, 240, 212, 0.2);
+  color: var(--accent-color);
 }
 
 .product-status.inactive {
@@ -369,8 +369,8 @@ onMounted(() => {
 }
 
 .order-status {
-  background: rgba(0, 212, 255, 0.2);
-  color: #00d4ff;
+  background: rgba(208, 255, 89, 0.2);
+  color: var(--primary-color);
 }
 
 .order-date {

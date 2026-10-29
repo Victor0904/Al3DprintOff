@@ -230,7 +230,7 @@ const submitContact = async () => {
 .hero-section {
   text-align: center;
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.5), rgba(22, 33, 62, 0.5));
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.5), rgba(22, 33, 62, 0.5));
   border-radius: 20px;
   margin-bottom: 60px;
 }
@@ -340,7 +340,7 @@ const submitContact = async () => {
 }
 
 .team-member {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px 20px;
@@ -399,7 +399,7 @@ const submitContact = async () => {
 }
 
 .value-card {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px 20px;
@@ -431,7 +431,7 @@ const submitContact = async () => {
 }
 
 .contact-section {
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border-radius: 20px;
   padding: 60px 40px;
 }
@@ -458,7 +458,7 @@ const submitContact = async () => {
   font-size: 24px;
   width: 50px;
   height: 50px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -479,7 +479,7 @@ const submitContact = async () => {
 }
 
 .contact-form {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px;
@@ -492,7 +492,7 @@ const submitContact = async () => {
 .form-input,
 .form-textarea {
   width: 100%;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 12px 15px;

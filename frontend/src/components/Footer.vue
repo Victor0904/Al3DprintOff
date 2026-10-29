@@ -10,12 +10,6 @@
               L'avenir de l'impression 3D à votre portée. Découvrez nos produits innovants 
               et personnalisez vos créations selon vos envies.
             </p>
-            <div class="social-links">
-              <a href="#" class="social-link">📘</a>
-              <a href="#" class="social-link">📷</a>
-              <a href="#" class="social-link">🐦</a>
-              <a href="#" class="social-link">📺</a>
-            </div>
           </div>
 
           <div class="footer-section">
@@ -34,7 +28,7 @@
               <li><router-link to="/about" class="footer-link">Centre d'aide</router-link></li>
               <li><router-link to="/about" class="footer-link">Contact</router-link></li>
               <li><router-link to="/about" class="footer-link">FAQ</router-link></li>
-              <li><router-link to="/about" class="footer-link">Retours</router-link></li>
+              <li><router-link to="/cgv" class="footer-link">Retours</router-link></li>
             </ul>
           </div>
 
@@ -113,7 +107,7 @@ const getParticleStyle = (index) => {
 
 <style scoped>
 .footer {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, var(--surface) 100%);
   border-top: 1px solid var(--border-color);
   margin-top: auto;
   position: relative;
@@ -171,7 +165,7 @@ const getParticleStyle = (index) => {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   border: 1px solid var(--border-color);
   border-radius: 50%;
   text-decoration: none;
@@ -230,7 +224,7 @@ const getParticleStyle = (index) => {
 
 .newsletter-input {
   flex: 1;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 12px 15px;
@@ -249,8 +243,8 @@ const getParticleStyle = (index) => {
 }
 
 .newsletter-btn {
-  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-  color: white;
+  background: var(--primary-color);
+  color: #050505;
   border: none;
   border-radius: 8px;
   padding: 12px 20px;

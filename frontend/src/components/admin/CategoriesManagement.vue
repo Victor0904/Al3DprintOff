@@ -114,7 +114,8 @@ const loadCategories = async () => {
     if (response.ok) {
       categories.value = await response.json()
     }
-  } catch (error) {
+  } catch (error) {
+
   }
 }
 
@@ -139,7 +140,8 @@ const deleteCategory = async (categoryId) => {
       if (response.ok) {
         categories.value = categories.value.filter(c => c.id !== categoryId)
       }
-    } catch (error) {
+    } catch (error) {
+
     }
   }
 }
@@ -165,7 +167,8 @@ const saveCategory = async () => {
       await loadCategories()
       closeModal()
     }
-  } catch (error) {
+  } catch (error) {
+
   }
 }
 
@@ -198,13 +201,13 @@ onMounted(() => {
 }
 
 .management-header h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
 
 .add-btn {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
   padding: 12px 20px;
@@ -219,7 +222,7 @@ onMounted(() => {
 
 .add-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(208, 255, 89, 0.4);
 }
 
 .categories-grid {
@@ -229,8 +232,8 @@ onMounted(() => {
 }
 
 .category-card {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid #2e2e4a;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 1px solid var(--surface-2);
   border-radius: 15px;
   padding: 25px;
   display: flex;
@@ -241,18 +244,18 @@ onMounted(() => {
 
 .category-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(208, 255, 89, 0.2);
+  border-color: var(--primary-color);
 }
 
 .subcategory-card {
   margin-left: 30px;
-  border-left: 3px solid rgba(0, 212, 255, 0.3);
+  border-left: 3px solid rgba(208, 255, 89, 0.3);
   border-radius: 10px;
 }
 
 .sub-icon {
-  color: #4ecdc4;
+  color: var(--accent-color);
   margin-right: 5px;
 }
 
@@ -263,7 +266,7 @@ onMounted(() => {
 }
 
 .category-info h3 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0 0 10px 0;
   font-size: 20px;
 }
@@ -281,7 +284,7 @@ onMounted(() => {
 
 .action-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
   padding: 8px;
   cursor: pointer;
@@ -290,8 +293,8 @@ onMounted(() => {
 }
 
 .action-btn.edit:hover {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .action-btn.delete:hover {
@@ -396,8 +399,8 @@ onMounted(() => {
 }
 
 .modal {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 2px solid #00d4ff;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 2px solid var(--primary-color);
   border-radius: 15px;
   padding: 30px;
   width: 100%;
@@ -412,7 +415,7 @@ onMounted(() => {
 }
 
 .modal-header h3 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -443,8 +446,8 @@ onMounted(() => {
 }
 
 .form-input, .form-textarea {
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
@@ -452,8 +455,8 @@ onMounted(() => {
 
 .form-input:focus, .form-textarea:focus {
   outline: none;
-  border-color: #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(208, 255, 89, 0.3);
 }
 
 .form-actions {
@@ -472,13 +475,13 @@ onMounted(() => {
 }
 
 .btn-secondary {
-  background: #2e2e4a;
+  background: var(--surface-2);
   color: #e0e0e0;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
 }

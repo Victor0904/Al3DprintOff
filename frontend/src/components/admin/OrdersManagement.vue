@@ -547,15 +547,15 @@ onMounted(() => {
 }
 
 .orders-management h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
 
 .orders-table {
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border-radius: 10px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   overflow: hidden;
 }
 
@@ -564,10 +564,10 @@ onMounted(() => {
   grid-template-columns: 60px 2fr 100px 120px 150px 120px 180px;
   gap: 15px;
   padding: 20px;
-  background: rgba(0, 212, 255, 0.1);
-  border-bottom: 1px solid #2e2e4a;
+  background: rgba(208, 255, 89, 0.1);
+  border-bottom: 1px solid var(--surface-2);
   font-weight: 600;
-  color: #00d4ff;
+  color: var(--primary-color);
 }
 
 .table-row {
@@ -575,12 +575,12 @@ onMounted(() => {
   grid-template-columns: 60px 2fr 100px 120px 150px 120px 180px;
   gap: 15px;
   padding: 20px;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
   align-items: center;
 }
 
 .table-row:hover {
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(208, 255, 89, 0.05);
 }
 
 .status-select {
@@ -589,28 +589,28 @@ onMounted(() => {
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
-  color: #00d4ff;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
+  color: var(--primary-color);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .status-select:hover {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .status-select:focus {
   outline: none;
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.15);
-  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.15);
+  box-shadow: 0 0 0 2px rgba(208, 255, 89, 0.2);
 }
 
 .status-select option {
-  background: rgba(26, 26, 46, 0.95);
-  color: #00d4ff;
+  background: rgba(20, 20, 20, 0.95);
+  color: var(--primary-color);
   padding: 8px;
 }
 
@@ -621,7 +621,7 @@ onMounted(() => {
 
 .action-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
   padding: 8px;
   cursor: pointer;
@@ -630,13 +630,13 @@ onMounted(() => {
 }
 
 .action-btn.view:hover {
-  border-color: #4ecdc4;
-  background: rgba(78, 205, 196, 0.1);
+  border-color: var(--accent-color);
+  background: rgba(204, 240, 212, 0.1);
 }
 
 .action-btn.update:hover {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .col-tracking {
@@ -649,8 +649,8 @@ onMounted(() => {
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 13px;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   color: #fff;
   transition: all 0.3s ease;
 }
@@ -661,9 +661,9 @@ onMounted(() => {
 
 .tracking-input:focus {
   outline: none;
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
+  box-shadow: 0 0 0 2px rgba(208, 255, 89, 0.2);
 }
 
 .tracking-input:hover {
@@ -687,9 +687,9 @@ onMounted(() => {
 }
 
 .modal-content {
-  background: rgba(26, 26, 46, 0.95);
+  background: rgba(20, 20, 20, 0.95);
   border-radius: 12px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   max-width: 900px;
   width: 100%;
   max-height: 90vh;
@@ -702,21 +702,21 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 25px 30px;
-  border-bottom: 1px solid #2e2e4a;
-  background: rgba(0, 212, 255, 0.1);
+  border-bottom: 1px solid var(--surface-2);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .modal-header h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 24px;
 }
 
 .close-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
-  color: #00d4ff;
+  color: var(--primary-color);
   font-size: 20px;
   width: 35px;
   height: 35px;
@@ -741,12 +741,12 @@ onMounted(() => {
 .error-state {
   padding: 60px 30px;
   text-align: center;
-  color: #00d4ff;
+  color: var(--primary-color);
 }
 
 .spinner {
-  border: 3px solid rgba(0, 212, 255, 0.2);
-  border-top: 3px solid #00d4ff;
+  border: 3px solid rgba(208, 255, 89, 0.2);
+  border-top: 3px solid var(--primary-color);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -762,7 +762,7 @@ onMounted(() => {
 .detail-section {
   margin-bottom: 30px;
   padding-bottom: 25px;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
 }
 
 .detail-section:last-child {
@@ -770,7 +770,7 @@ onMounted(() => {
 }
 
 .detail-section h3 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0 0 20px 0;
   font-size: 18px;
 }
@@ -799,7 +799,7 @@ onMounted(() => {
 }
 
 .total-amount {
-  color: #00d4ff;
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 18px;
 }
@@ -810,13 +810,13 @@ onMounted(() => {
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
-  background: rgba(0, 212, 255, 0.2);
-  color: #00d4ff;
+  background: rgba(208, 255, 89, 0.2);
+  color: var(--primary-color);
 }
 
 .address-box {
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid #2e2e4a;
+  background: rgba(208, 255, 89, 0.05);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 15px;
   color: #fff;
@@ -834,8 +834,8 @@ onMounted(() => {
   padding: 12px;
   border-radius: 8px;
   font-size: 14px;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   color: #fff;
   font-family: inherit;
   resize: vertical;
@@ -849,9 +849,9 @@ onMounted(() => {
 
 .address-input:focus {
   outline: none;
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
+  box-shadow: 0 0 0 2px rgba(208, 255, 89, 0.2);
 }
 
 .address-input:hover {
@@ -869,18 +869,18 @@ onMounted(() => {
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
-  background: rgba(0, 212, 255, 0.2);
-  border: 1px solid #00d4ff;
-  color: #00d4ff;
+  background: rgba(208, 255, 89, 0.2);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .save-address-btn:hover:not(:disabled) {
-  background: rgba(0, 212, 255, 0.3);
-  border-color: #00d4ff;
+  background: rgba(208, 255, 89, 0.3);
+  border-color: var(--primary-color);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(208, 255, 89, 0.3);
 }
 
 .save-address-btn:disabled {
@@ -895,7 +895,7 @@ onMounted(() => {
 }
 
 .address-status.success {
-  color: #4ecdc4;
+  color: var(--accent-color);
 }
 
 .address-status.error {
@@ -911,10 +911,10 @@ onMounted(() => {
   grid-template-columns: 80px 2fr 100px 120px 100px;
   gap: 15px;
   padding: 12px 15px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   border-radius: 6px;
   font-weight: 600;
-  color: #00d4ff;
+  color: var(--primary-color);
   font-size: 13px;
 }
 
@@ -923,7 +923,7 @@ onMounted(() => {
   grid-template-columns: 80px 2fr 100px 120px 100px;
   gap: 15px;
   padding: 15px;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
   align-items: start;
 }
 
@@ -932,7 +932,7 @@ onMounted(() => {
 }
 
 .items-row:hover {
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(208, 255, 89, 0.05);
 }
 
 .item-col-ref {
@@ -964,7 +964,7 @@ onMounted(() => {
 
 .item-col-total {
   font-weight: 600;
-  color: #00d4ff;
+  color: var(--primary-color);
 }
 
 .payments-list {
@@ -974,8 +974,8 @@ onMounted(() => {
 }
 
 .payment-item {
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid #2e2e4a;
+  background: rgba(208, 255, 89, 0.05);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 15px;
   display: flex;
@@ -990,7 +990,7 @@ onMounted(() => {
 }
 
 .payment-amount {
-  color: #00d4ff;
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 16px;
 }
@@ -1004,8 +1004,8 @@ onMounted(() => {
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
-  background: rgba(0, 212, 255, 0.2);
-  color: #00d4ff;
+  background: rgba(208, 255, 89, 0.2);
+  color: var(--primary-color);
 }
 
 .payment-date {
@@ -1019,16 +1019,16 @@ onMounted(() => {
 }
 
 .modal-content::-webkit-scrollbar-track {
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.3);
+  background: rgba(208, 255, 89, 0.3);
   border-radius: 4px;
 }
 
 .modal-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 212, 255, 0.5);
+  background: rgba(208, 255, 89, 0.5);
 }
 
 /* Styles pour les boutons d'email */
@@ -1046,21 +1046,21 @@ onMounted(() => {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid #2e2e4a;
-  background: rgba(26, 26, 46, 0.8);
-  color: #00d4ff;
+  border: 1px solid var(--surface-2);
+  background: rgba(20, 20, 20, 0.8);
+  color: var(--primary-color);
 }
 
 .preview-email:hover:not(:disabled) {
-  border-color: #4ecdc4;
-  background: rgba(78, 205, 196, 0.1);
-  color: #4ecdc4;
+  border-color: var(--accent-color);
+  background: rgba(204, 240, 212, 0.1);
+  color: var(--accent-color);
 }
 
 .send-email:hover:not(:disabled) {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.2);
-  color: #00d4ff;
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.2);
+  color: var(--primary-color);
 }
 
 .preview-email:disabled,
@@ -1081,8 +1081,8 @@ onMounted(() => {
 }
 
 .email-info {
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid #2e2e4a;
+  background: rgba(208, 255, 89, 0.05);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
@@ -1092,7 +1092,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
 }
 
 .email-info .info-row:last-child {
@@ -1119,7 +1119,7 @@ onMounted(() => {
 
 .email-html-preview {
   background: #fff;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 20px;
   max-height: 500px;
@@ -1213,7 +1213,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid #2e2e4a;
+    border: 1px solid var(--surface-2);
     border-radius: 8px;
     margin-bottom: 10px;
   }
@@ -1221,25 +1221,25 @@ onMounted(() => {
   .col-id::before {
     content: "ID: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-client::before {
     content: "Client: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-total::before {
     content: "Total: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-status::before {
     content: "Statut: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
     display: block;
     margin-bottom: 5px;
   }
@@ -1247,13 +1247,13 @@ onMounted(() => {
   .col-date::before {
     content: "Date: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-actions::before {
     content: "Actions: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
     display: block;
     margin-bottom: 5px;
   }
@@ -1261,7 +1261,7 @@ onMounted(() => {
   .col-tracking::before {
     content: "Numéro de suivi: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
     display: block;
     margin-bottom: 5px;
   }

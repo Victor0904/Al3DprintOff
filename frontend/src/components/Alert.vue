@@ -168,7 +168,7 @@ onMounted(() => {
 
 .alert-success {
   border-color: var(--accent-color);
-  box-shadow: 0 10px 40px rgba(78, 205, 196, 0.3);
+  box-shadow: 0 10px 40px rgba(204, 240, 212, 0.3);
 }
 
 .alert-error {
@@ -205,7 +205,7 @@ onMounted(() => {
 }
 
 .alert-success .alert-icon {
-  background: rgba(78, 205, 196, 0.2);
+  background: rgba(204, 240, 212, 0.2);
   color: var(--accent-color);
   border: 2px solid var(--accent-color);
 }
@@ -224,7 +224,7 @@ onMounted(() => {
 
 .alert-info .alert-icon,
 .alert-confirm .alert-icon {
-  background: rgba(0, 212, 255, 0.2);
+  background: rgba(208, 255, 89, 0.2);
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
 }

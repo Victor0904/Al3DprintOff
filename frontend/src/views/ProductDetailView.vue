@@ -33,10 +33,10 @@
                 v-if="currentImage" 
                 :src="currentImage" 
                 :alt="product.nom"
-                class="product-img"
+                class="product-img" @error="e => { e.target.onerror = null; e.target.src = '/placeholder.svg' }"
               >
               <div v-else class="image-placeholder">
-                <div class="placeholder-icon">🔮</div>
+                <img src="/placeholder.svg" alt="" class="placeholder-img">
               </div>
             </div>
             
@@ -49,7 +49,7 @@
                 @click="currentImage = getImageUrl(img.url)"
                 type="button"
               >
-                <img :src="getImageUrl(img.url)" class="thumb-img">
+                <img :src="getImageUrl(img.url)" class="thumb-img" @error="e => { e.target.onerror = null; e.target.src = '/placeholder.svg' }">
               </button>
             </div>
 
@@ -163,7 +163,7 @@
               <!-- Aperçus fichiers -->
               <div v-if="filePreviewUrls.length > 0 && !filesSent" class="files-preview">
                 <div v-for="(file, idx) in filePreviewUrls" :key="idx" class="file-preview-item">
-                  <img :src="file.url" :alt="file.name" class="preview-img">
+                  <img :src="file.url" :alt="file.name" class="preview-img" @error="e => { e.target.onerror = null; e.target.src = '/placeholder.svg' }">
                   <button @click.stop="removeFile(idx)" class="remove-file-btn" title="Supprimer">×</button>
                   <span class="file-name">{{ file.name }}</span>
                 </div>
@@ -584,13 +584,13 @@ onUnmounted(() => {
 
 .variant-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(208, 255, 89, 0.3);
   border-color: var(--primary-color);
 }
 
 .variant-btn.active {
   border-color: var(--primary-color);
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 15px rgba(208, 255, 89, 0.5);
   transform: scale(1.05);
 }
 
@@ -612,7 +612,7 @@ onUnmounted(() => {
   gap: 8px;
   margin: 10px 0;
   padding: 8px 12px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   border: 1px solid var(--primary-color);
   border-radius: 6px;
   font-size: 14px;
@@ -634,7 +634,7 @@ onUnmounted(() => {
   height: 400px;
   border-radius: 15px;
   overflow: hidden;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
 }
 
@@ -728,7 +728,7 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border: 1px solid var(--border-color);
   border-radius: 10px;
 }
@@ -753,7 +753,7 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 20px;
   padding: 30px;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
 }
@@ -794,7 +794,7 @@ onUnmounted(() => {
 
 .quantity-btn:hover:not(:disabled) {
   background: var(--primary-color);
-  color: white;
+  color: #050505;
 }
 
 .quantity-btn:disabled {
@@ -856,7 +856,7 @@ onUnmounted(() => {
 }
 
 .thumb-btn.active {
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 8px rgba(208, 255, 89, 0.5);
 }
 
 .thumb-img {
@@ -912,7 +912,7 @@ onUnmounted(() => {
   text-align: center;
   cursor: pointer;
   transition: all 0.25s ease;
-  background: rgba(26, 26, 46, 0.4);
+  background: rgba(20, 20, 20, 0.4);
   user-select: none;
   min-height: 120px;
   display: flex;
@@ -923,12 +923,12 @@ onUnmounted(() => {
 .upload-zone:hover,
 .upload-zone.dragging {
   border-color: var(--primary-color);
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(208, 255, 89, 0.05);
 }
 
 .upload-zone.has-files {
-  border-color: rgba(78, 205, 196, 0.6);
-  background: rgba(78, 205, 196, 0.04);
+  border-color: rgba(204, 240, 212, 0.6);
+  background: rgba(204, 240, 212, 0.04);
 }
 
 .upload-zone.files-sent {
@@ -961,7 +961,7 @@ onUnmounted(() => {
 .upload-formats {
   display: inline-block;
   margin-top: 8px;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   color: var(--primary-color);
   font-size: 11px;
   padding: 3px 12px;
@@ -1075,5 +1075,11 @@ onUnmounted(() => {
   .quantity-input { width: 60px; height: 36px; font-size: 14px; }
 
   .add-to-cart-btn { padding: 13px; font-size: 14px; }
+}
+
+.placeholder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

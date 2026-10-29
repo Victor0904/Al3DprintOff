@@ -230,7 +230,7 @@ onUnmounted(() => {
 }
 
 .form-input {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 12px 15px;
@@ -307,7 +307,7 @@ onUnmounted(() => {
 
 /* Notification panier */
 .cart-notification {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(78, 205, 196, 0.1));
+  background: linear-gradient(135deg, rgba(208, 255, 89, 0.1), rgba(204, 240, 212, 0.1));
   border: 1px solid var(--primary-color);
   border-radius: 8px;
   padding: 12px;

@@ -162,7 +162,7 @@ onMounted(() => {
 }
 
 .statistics-view h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
@@ -174,8 +174,8 @@ onMounted(() => {
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid #2e2e4a;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 1px solid var(--surface-2);
   border-radius: 15px;
   padding: 25px;
   text-align: center;
@@ -184,37 +184,37 @@ onMounted(() => {
 
 .stat-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(208, 255, 89, 0.2);
+  border-color: var(--primary-color);
 }
 
 .stat-card h3 {
-  color: #4ecdc4;
+  color: var(--accent-color);
   margin: 0 0 15px 0;
   font-size: 16px;
 }
 
 .stat-value {
-  color: #00d4ff;
+  color: var(--primary-color);
   font-size: 32px;
   font-weight: bold;
 }
 
 .chart-section {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 1px solid #2e2e4a;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 1px solid var(--surface-2);
   border-radius: 15px;
   padding: 25px;
 }
 
 .chart-section h3 {
-  color: #4ecdc4;
+  color: var(--accent-color);
   margin: 0 0 20px 0;
 }
 
 .chart-placeholder {
-  background: rgba(26, 26, 46, 0.5);
-  border: 2px dashed #2e2e4a;
+  background: rgba(20, 20, 20, 0.5);
+  border: 2px dashed var(--surface-2);
   border-radius: 10px;
   padding: 60px;
   text-align: center;

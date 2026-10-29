@@ -66,6 +66,9 @@ body {
   --border-color: rgba(255, 255, 255, 0.12);
   --glow-color: rgba(208, 255, 89, 0.45);
   --shadow-color: rgba(0, 0, 0, 0.7);
+  --surface: #141414;
+  --surface-2: #2a2a2a;
+  --radius: 14px;
 }
 
 /* Animations et effets */
@@ -129,7 +132,19 @@ body {
   transform: translateY(-2px);
   color: #050505 !important;
   border-color: var(--primary-color);
-  box-shadow: 0 14px 32px var(--glow-color);
+  box-shadow: 0 10px 24px rgba(208, 255, 89, 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .btn-primary:hover::before {
@@ -150,9 +165,9 @@ body {
 }
 
 .card {
-  background: rgba(26, 26, 46, 0.8);
+  background: var(--surface);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 20px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;

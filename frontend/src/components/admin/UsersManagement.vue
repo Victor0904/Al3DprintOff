@@ -79,15 +79,15 @@ onMounted(() => {
 }
 
 .users-management h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
 
 .users-table {
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border-radius: 10px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   overflow: hidden;
 }
 
@@ -96,10 +96,10 @@ onMounted(() => {
   grid-template-columns: 60px 2fr 2fr 150px 120px;
   gap: 15px;
   padding: 20px;
-  background: rgba(0, 212, 255, 0.1);
-  border-bottom: 1px solid #2e2e4a;
+  background: rgba(208, 255, 89, 0.1);
+  border-bottom: 1px solid var(--surface-2);
   font-weight: 600;
-  color: #00d4ff;
+  color: var(--primary-color);
 }
 
 .table-row {
@@ -107,12 +107,12 @@ onMounted(() => {
   grid-template-columns: 60px 2fr 2fr 150px 120px;
   gap: 15px;
   padding: 20px;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
   align-items: center;
 }
 
 .table-row:hover {
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(208, 255, 89, 0.05);
 }
 
 .col-actions {
@@ -122,7 +122,7 @@ onMounted(() => {
 
 .action-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
   padding: 8px;
   cursor: pointer;
@@ -131,8 +131,8 @@ onMounted(() => {
 }
 
 .action-btn.view:hover {
-  border-color: #4ecdc4;
-  background: rgba(78, 205, 196, 0.1);
+  border-color: var(--accent-color);
+  background: rgba(204, 240, 212, 0.1);
 }
 
 .action-btn.delete:hover {
@@ -184,7 +184,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid #2e2e4a;
+    border: 1px solid var(--surface-2);
     border-radius: 8px;
     margin-bottom: 10px;
   }
@@ -192,31 +192,31 @@ onMounted(() => {
   .col-id::before {
     content: "ID: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-name::before {
     content: "Nom: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-email::before {
     content: "Email: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-date::before {
     content: "Date d'inscription: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
   }
   
   .col-actions::before {
     content: "Actions: ";
     font-weight: 600;
-    color: #00d4ff;
+    color: var(--primary-color);
     display: block;
     margin-bottom: 5px;
   }

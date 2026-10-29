@@ -53,7 +53,7 @@
         <h2 class="section-title">Pourquoi choisir Al3DPrint ?</h2>
         <div class="features-grid">
           <div class="feature-card" v-for="feature in features" :key="feature.id">
-            <div class="feature-icon">{{ feature.icon }}</div>
+            <div class="feature-icon"><Icon :name="feature.icon" :size="28" /></div>
             <h3 class="feature-title">{{ feature.title }}</h3>
             <p class="feature-description">{{ feature.description }}</p>
           </div>
@@ -120,6 +120,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useCartStore } from '../stores/cart'
 import ProductCard from '../components/ProductCard.vue'
+import Icon from '../components/Icon.vue'
 
 const cartStore = useCartStore()
 
@@ -129,10 +130,10 @@ const products = ref([])
 const featuresSection = ref(null)
 
 const features = ref([
-  { id: 1, icon: '🎨', title: 'Personnalisation', description: 'Chaque produit peut être personnalisé selon vos envies et besoins spécifiques.' },
-  { id: 2, icon: '⚡', title: 'Impression Rapide', description: 'Technologie d\'impression 3D de pointe pour des délais de livraison optimisés.' },
-  { id: 3, icon: '🔬', title: 'Qualité Premium', description: 'Matériaux de haute qualité et finitions impeccables pour tous nos produits.' },
-  { id: 4, icon: '🌱', title: 'Écologique', description: 'Matériaux recyclables et processus de production respectueux de l\'environnement.' }
+  { id: 1, icon: 'palette', title: 'Personnalisation', description: 'Chaque produit peut être personnalisé selon vos envies et besoins spécifiques.' },
+  { id: 2, icon: 'bolt', title: 'Impression Rapide', description: 'Technologie d\'impression 3D de pointe pour des délais de livraison optimisés.' },
+  { id: 3, icon: 'award', title: 'Qualité Premium', description: 'Matériaux de haute qualité et finitions impeccables pour tous nos produits.' },
+  { id: 4, icon: 'leaf', title: 'Écologique', description: 'Matériaux recyclables et processus de production respectueux de l\'environnement.' }
 ])
 
 const scrollToFeatures = () => featuresSection.value?.scrollIntoView({ behavior: 'smooth' })
@@ -551,9 +552,13 @@ section { padding: 80px 0; }
 .section-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
+
+.section-header .section-title { margin: 0; }
 
 .view-all-link { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: color 0.3s; }
 .view-all-link:hover { color: var(--accent-color); }
@@ -565,13 +570,23 @@ section { padding: 80px 0; }
 .feature-card {
   text-align: center;
   padding: 30px 20px;
-  background: rgba(26,26,46,0.8);
+  background: rgba(20, 20, 20,0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   transition: all 0.3s ease;
 }
 .feature-card:hover { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 15px 40px var(--shadow-color); }
-.feature-icon { font-size: 48px; margin-bottom: 20px; }
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.08);
+  border: 1px solid rgba(208, 255, 89, 0.2);
+}
 .feature-title { font-size: 20px; font-weight: 600; margin-bottom: 15px; color: var(--text-primary); }
 .feature-description { color: var(--text-secondary); line-height: 1.6; }
 

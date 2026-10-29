@@ -369,7 +369,7 @@ defineExpose({
 }
 
 .management-header h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
@@ -379,8 +379,8 @@ defineExpose({
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
-  color: white;
+  background: var(--primary-color);
+  color: #050505;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -390,7 +390,7 @@ defineExpose({
 
 .add-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(208, 255, 89, 0.3);
 }
 
 .filters-section {
@@ -407,8 +407,8 @@ defineExpose({
 .search-input {
   width: 100%;
   padding: 12px;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   color: #e0e0e0;
   font-size: 14px;
@@ -421,8 +421,8 @@ defineExpose({
 
 .filter-select {
   padding: 12px;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   color: #e0e0e0;
   font-size: 14px;
@@ -436,8 +436,8 @@ defineExpose({
 }
 
 .image-card {
-  background: rgba(26, 26, 46, 0.8);
-  border: 2px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px solid var(--surface-2);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -446,13 +446,13 @@ defineExpose({
 
 .image-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(208, 255, 89, 0.2);
+  border-color: var(--primary-color);
 }
 
 .image-card.selected {
-  border-color: #00d4ff;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(208, 255, 89, 0.5);
 }
 
 .image-preview {
@@ -540,15 +540,15 @@ defineExpose({
 }
 
 .meta-badge.type {
-  background: rgba(0, 212, 255, 0.2);
-  color: #00d4ff;
-  border: 1px solid #00d4ff;
+  background: rgba(208, 255, 89, 0.2);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .meta-badge.categorie {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
-  border: 1px solid #4ecdc4;
+  background: rgba(204, 240, 212, 0.2);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 .meta-badge.format {
@@ -585,8 +585,8 @@ defineExpose({
 }
 
 .modal {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 2px solid #2e2e4a;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 2px solid var(--surface-2);
   border-radius: 16px;
   padding: 30px;
   max-width: 600px;
@@ -603,7 +603,7 @@ defineExpose({
 }
 
 .modal-header h3 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -623,7 +623,7 @@ defineExpose({
 }
 
 .upload-area {
-  border: 2px dashed #2e2e4a;
+  border: 2px dashed var(--surface-2);
   border-radius: 12px;
   padding: 40px;
   text-align: center;
@@ -633,8 +633,8 @@ defineExpose({
 }
 
 .upload-area.drag-over {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .file-input {
@@ -657,7 +657,7 @@ defineExpose({
 }
 
 .selected-file {
-  color: #00d4ff !important;
+  color: var(--primary-color) !important;
   font-weight: 600;
 }
 
@@ -677,8 +677,8 @@ defineExpose({
 .form-textarea,
 .form-select {
   padding: 12px;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   color: #e0e0e0;
   font-size: 14px;
@@ -688,8 +688,8 @@ defineExpose({
 .form-textarea:focus,
 .form-select:focus {
   outline: none;
-  border-color: #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(208, 255, 89, 0.3);
 }
 
 .form-row {
@@ -715,13 +715,13 @@ defineExpose({
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
-  color: white;
+  background: var(--primary-color);
+  color: #050505;
 }
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(208, 255, 89, 0.3);
 }
 
 .btn-primary:disabled {
@@ -732,12 +732,12 @@ defineExpose({
 .btn-secondary {
   background: transparent;
   color: #a0a0a0;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .btn-secondary:hover {
-  border-color: #00d4ff;
-  color: #00d4ff;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 @media (max-width: 768px) {

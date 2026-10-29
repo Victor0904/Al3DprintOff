@@ -43,7 +43,7 @@
                 @error="handleImageError"
               >
               <div class="item-placeholder" :style="{ display: (!item.image || !getImageUrl(item.image)) ? 'flex' : 'none' }">
-                <div class="placeholder-icon">🔮</div>
+                <img src="/placeholder.svg" alt="" class="placeholder-img">
               </div>
             </div>
 
@@ -309,8 +309,8 @@ const handleImageError = (event) => {
 }
 
 .shipping-banner {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(78, 205, 196, 0.1));
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: linear-gradient(135deg, rgba(208, 255, 89, 0.1), rgba(204, 240, 212, 0.1));
+  border: 1px solid rgba(208, 255, 89, 0.3);
   border-radius: 10px;
   padding: 12px 20px;
   margin-bottom: 20px;
@@ -322,7 +322,7 @@ const handleImageError = (event) => {
 }
 
 .shipping-banner-free {
-  border-color: rgba(78, 205, 196, 0.4);
+  border-color: rgba(204, 240, 212, 0.4);
 }
 
 .shipping-banner-icon {
@@ -384,7 +384,7 @@ const handleImageError = (event) => {
 }
 
 .cart-item {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 20px;
@@ -493,7 +493,7 @@ const handleImageError = (event) => {
 
 .quantity-btn:hover:not(:disabled) {
   background: var(--primary-color);
-  color: white;
+  color: #050505;
 }
 
 .quantity-btn:disabled {
@@ -554,7 +554,7 @@ const handleImageError = (event) => {
 }
 
 .summary-card {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px;
@@ -602,8 +602,8 @@ const handleImageError = (event) => {
 
 .promo-input {
   flex: 1;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 10px 12px;
   color: #e0e0e0;
@@ -614,12 +614,12 @@ const handleImageError = (event) => {
 
 .promo-input:focus {
   outline: none;
-  border-color: #00d4ff;
+  border-color: var(--primary-color);
 }
 
 .btn-promo {
   padding: 10px 14px;
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
   border-radius: 8px;
@@ -643,12 +643,12 @@ const handleImageError = (event) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(78, 205, 196, 0.1);
-  border: 1px solid rgba(78, 205, 196, 0.4);
+  background: rgba(204, 240, 212, 0.1);
+  border: 1px solid rgba(204, 240, 212, 0.4);
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 13px;
-  color: #4ecdc4;
+  color: var(--accent-color);
 }
 
 .btn-remove-promo {
@@ -662,12 +662,12 @@ const handleImageError = (event) => {
 }
 
 .discount-line {
-  color: #4ecdc4;
+  color: var(--accent-color);
 }
 
 .discount-amount {
   font-weight: 700;
-  color: #4ecdc4;
+  color: var(--accent-color);
 }
 
 .summary-divider {
@@ -802,5 +802,11 @@ const handleImageError = (event) => {
   }
 
   .shipping-banner { font-size: 13px; padding: 10px 14px; }
+}
+
+.placeholder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

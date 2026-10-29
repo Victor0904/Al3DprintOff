@@ -426,7 +426,7 @@ onMounted(() => {
 }
 
 .filters-section {
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 20px;
@@ -455,7 +455,7 @@ onMounted(() => {
 
 .search-input {
   width: 100%;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 25px;
   padding: 12px 50px 12px 20px;
@@ -495,7 +495,7 @@ onMounted(() => {
 }
 
 .filter-select {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 10px 15px;
@@ -514,7 +514,7 @@ onMounted(() => {
 }
 
 .view-btn {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 10px 15px;
@@ -572,7 +572,7 @@ onMounted(() => {
 }
 
 .sidebar-card {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 20px;
@@ -607,7 +607,7 @@ onMounted(() => {
 
 .category-item:hover,
 .category-item.active {
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   color: var(--primary-color);
 }
 
@@ -713,7 +713,7 @@ onMounted(() => {
 }
 
 .pagination-btn {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 10px 15px;

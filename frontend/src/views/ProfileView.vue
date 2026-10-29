@@ -923,7 +923,7 @@ onMounted(async () => {
 .profile-header {
   display: flex;
   gap: 30px;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px;
@@ -991,7 +991,7 @@ onMounted(async () => {
 }
 
 .profile-section {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px;
@@ -1052,7 +1052,7 @@ onMounted(async () => {
 
 /* Styles pour le formulaire d'édition */
 .edit-form {
-  background: rgba(26, 26, 46, 0.3);
+  background: rgba(20, 20, 20, 0.3);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 25px;
@@ -1086,7 +1086,7 @@ onMounted(async () => {
   padding: 12px 16px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   color: var(--text-primary);
   font-size: 14px;
   transition: all 0.3s ease;
@@ -1095,7 +1095,7 @@ onMounted(async () => {
 .form-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(208, 255, 89, 0.2);
 }
 
 .form-input::placeholder {
@@ -1149,7 +1149,7 @@ onMounted(async () => {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border: 1px solid var(--border-color);
   border-radius: 10px;
 }
@@ -1185,7 +1185,7 @@ onMounted(async () => {
 
 .order-status.en-cours {
   background: var(--primary-color);
-  color: white;
+  color: #050505;
 }
 
 .order-total {
@@ -1361,7 +1361,7 @@ onMounted(async () => {
 }
 
 .total-price {
-  color: #667eea !important;
+  color: var(--primary-color) !important;
   font-size: 1.1rem;
 }
 
@@ -1372,8 +1372,8 @@ onMounted(async () => {
 
 .btn-outline {
   background: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
   padding: 0.5rem 1rem;
   border-radius: 25px;
   text-decoration: none;
@@ -1386,8 +1386,8 @@ onMounted(async () => {
 }
 
 .btn-outline:hover {
-  background: #667eea;
-  color: white;
+  background: var(--primary-color);
+  color: #050505;
   transform: translateY(-1px);
 }
 
@@ -1414,9 +1414,9 @@ onMounted(async () => {
 }
 
 .refresh-btn:hover:not(:disabled) {
-  background: #667eea;
-  color: white;
-  border-color: #667eea;
+  background: var(--primary-color);
+  color: #050505;
+  border-color: var(--primary-color);
 }
 
 .refresh-btn:disabled {
@@ -1437,7 +1437,7 @@ onMounted(async () => {
   width: 30px;
   height: 30px;
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #667eea;
+  border-top: 3px solid var(--primary-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 1rem;
@@ -1603,8 +1603,8 @@ onMounted(async () => {
 
 .address-form .form-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(208, 255, 89, 0.1);
 }
 
 .address-form textarea.form-input {
@@ -1662,7 +1662,7 @@ onMounted(async () => {
 
 
 .address-card {
-  background: rgba(26, 26, 46, 0.6);
+  background: rgba(20, 20, 20, 0.6);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 25px;
@@ -1683,9 +1683,9 @@ onMounted(async () => {
 
 .address-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 8px 25px rgba(208, 255, 89, 0.2);
   border-color: var(--primary-color);
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
 }
 
 .address-header {
@@ -1725,7 +1725,7 @@ onMounted(async () => {
 
 .address-actions .btn-outline:hover {
   background: var(--primary-color);
-  color: white;
+  color: #050505;
   transform: translateY(-1px);
 }
 
@@ -1803,7 +1803,7 @@ onMounted(async () => {
 
 .default-address {
   border: 2px solid #28a745;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
 }
 
 .default-address::before {
@@ -1813,7 +1813,7 @@ onMounted(async () => {
 /* Styles pour les adresses du profil */
 .profile-address {
   border-left: 4px solid #17a2b8;
-  background: rgba(26, 26, 46, 0.6);
+  background: rgba(20, 20, 20, 0.6);
   position: relative;
 }
 
@@ -1838,7 +1838,7 @@ onMounted(async () => {
 }
 
 .profile-address .address-details {
-  background: rgba(26, 26, 46, 0.3);
+  background: rgba(20, 20, 20, 0.3);
   border-radius: 8px;
   padding: 15px;
   margin: 10px 0;
@@ -1869,7 +1869,7 @@ onMounted(async () => {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
-  background: rgba(26, 26, 46, 0.3);
+  background: rgba(20, 20, 20, 0.3);
   transition: all 0.3s ease;
   position: relative;
 }

@@ -1,18 +1,16 @@
 <template>
   <div class="product-card">
     <div class="product-image">
-      <img 
-        v-if="product.image_principale" 
-        :src="getImageUrl(product.image_principale)" 
+      <img
+        :src="product.image_principale ? getImageUrl(product.image_principale) : '/placeholder.svg'"
         :alt="product.nom"
         class="product-img"
+        loading="lazy"
+        @error="e => { e.target.onerror = null; e.target.src = '/placeholder.svg' }"
       >
-      <div v-else class="product-placeholder">
-        <div class="placeholder-icon">🔮</div>
-      </div>
       <div class="product-overlay">
         <button class="quick-view-btn" @click="viewProduct">
-          👁️ Voir
+          <Icon name="eye" :size="16" /> Voir
         </button>
       </div>
     </div>
@@ -42,7 +40,7 @@
           :class="{ 'disabled': !product.actif }"
         >
           <span v-if="!product.actif">Indisponible</span>
-          <span v-else>🛒 Ajouter</span>
+          <span v-else class="btn-label"><Icon name="cart" :size="16" /> Ajouter</span>
         </button>
       </div>
     </div>
@@ -58,6 +56,7 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
+import Icon from './Icon.vue'
 
 const props = defineProps({
   product: {
@@ -108,9 +107,9 @@ const getImageUrl = (chemin) => {
 
 <style scoped>
 .product-card {
-  background: #181818;
+  background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
+  border-radius: var(--radius);
   overflow: hidden;
   transition: all 0.4s ease;
   position: relative;
@@ -118,7 +117,14 @@ const getImageUrl = (chemin) => {
   display: flex;
   flex-direction: column;
   transform-style: preserve-3d;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.btn-label,
+.quick-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .product-card:hover {
@@ -141,7 +147,7 @@ const getImageUrl = (chemin) => {
   object-fit: contain;
   object-position: center center;
   transition: all 0.3s ease;
-  background: #111;
+  background: var(--surface);
 }
 
 .product-card:hover .product-img {
@@ -182,7 +188,7 @@ const getImageUrl = (chemin) => {
 
 .quick-view-btn {
   background: var(--primary-color);
-  color: white;
+  color: #050505;
   border: none;
   padding: 10px 20px;
   border-radius: 25px;
@@ -281,7 +287,6 @@ const getImageUrl = (chemin) => {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
-  box-shadow: 0 10px 26px var(--glow-color);
   position: relative;
   overflow: hidden;
 }
@@ -300,7 +305,7 @@ const getImageUrl = (chemin) => {
   transform: translateY(-2px);
   color: #050505 !important;
   border-color: var(--primary-color);
-  box-shadow: 0 16px 34px var(--glow-color);
+  box-shadow: 0 8px 20px rgba(208, 255, 89, 0.2);
 }
 
 .add-to-cart-btn:hover:not(.disabled)::before {

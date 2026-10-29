@@ -52,7 +52,7 @@
               <span v-if="!showWelcomeMessage && user?.nom" class="greeting-chip">{{ user.nom }}</span>
               <div class="user-dropdown">
                 <button class="avatar-btn" @click="toggleDropdown" aria-label="Menu utilisateur">
-                  <span class="avatar-icon">👤</span>
+                  <Icon name="user" :size="20" class="avatar-icon" />
                 </button>
                 <transition name="dropdown-anim">
                   <div v-if="showUserDropdown" class="dropdown-menu">
@@ -111,7 +111,7 @@
           <!-- User si connecté -->
           <div v-else class="m-user">
             <div class="m-user-greeting">
-              <span class="m-avatar">👤</span>
+              <Icon name="user" :size="22" class="m-avatar" />
               <div>
                 <p class="m-user-name">{{ user?.nom }}</p>
                 <p class="m-user-sub">Mon compte</p>
@@ -144,6 +144,7 @@ import { useAuthStore } from '../stores/auth'
 import LoginModal from './LoginModal.vue'
 import RegisterModal from './RegisterModal.vue'
 import CartDrawer from './CartDrawer.vue'
+import Icon from './Icon.vue'
 import logoImage from '../assets/logo/logo.png'
 
 const router = useRouter()
@@ -444,7 +445,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
   transition: background 0.2s;
 }
 .avatar-btn:hover { background: rgba(255,255,255,0.08); }
-.avatar-icon { font-size: 20px; }
+.avatar-icon { color: var(--text-primary); }
 
 .dropdown-menu {
   position: absolute;
@@ -584,7 +585,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
   border-radius: 10px;
   margin-bottom: 8px;
 }
-.m-avatar { font-size: 22px; }
+.m-avatar { color: var(--primary-color); }
 .m-user-name { font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; }
 .m-user-sub  { font-size: 12px; color: var(--text-secondary); margin: 0; }
 

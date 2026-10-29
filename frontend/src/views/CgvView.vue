@@ -125,7 +125,7 @@
 }
 
 .legal-section {
-  background: rgba(26, 26, 46, 0.6);
+  background: rgba(20, 20, 20, 0.6);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 30px;

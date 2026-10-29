@@ -155,14 +155,14 @@ onUnmounted(() => {
 <style scoped>
 .admin-dashboard {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, var(--surface) 50%, var(--surface) 100%);
   color: #e0e0e0;
 }
 
 .admin-header {
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(20px);
-  border-bottom: 2px solid #00d4ff;
+  border-bottom: 2px solid var(--primary-color);
   padding: 20px 0;
   position: sticky;
   top: 0;
@@ -180,13 +180,13 @@ onUnmounted(() => {
 
 .admin-logo h1 {
   font-size: 28px;
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
-  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+  text-shadow: 0 0 15px rgba(208, 255, 89, 0.5);
 }
 
 .admin-subtitle {
-  color: #4ecdc4;
+  color: var(--accent-color);
   font-size: 14px;
   font-weight: 500;
 }
@@ -219,8 +219,8 @@ onUnmounted(() => {
 }
 
 .admin-nav {
-  background: rgba(26, 26, 46, 0.8);
-  border-bottom: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border-bottom: 1px solid var(--surface-2);
   padding: 0;
 }
 
@@ -247,14 +247,14 @@ onUnmounted(() => {
 }
 
 .nav-tab:hover {
-  color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .nav-tab.active {
-  color: #00d4ff;
-  background: rgba(0, 212, 255, 0.15);
-  border-bottom-color: #00d4ff;
+  color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.15);
+  border-bottom-color: var(--primary-color);
 }
 
 .tab-icon {

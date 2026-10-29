@@ -903,7 +903,7 @@ onMounted(() => {
 
 .step.active .step-number {
   background: var(--primary-color);
-  color: white;
+  color: #050505;
 }
 
 .step.completed .step-number {
@@ -924,7 +924,7 @@ onMounted(() => {
 }
 
 .checkout-form {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px;
@@ -1031,30 +1031,30 @@ onMounted(() => {
   padding: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: rgba(26, 26, 46, 0.3);
+  background: rgba(20, 20, 20, 0.3);
 }
 
 .address-option:hover {
   border-color: var(--primary-color);
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(208, 255, 89, 0.05);
 }
 
 .address-option.active {
   border-color: var(--primary-color);
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+  background: rgba(208, 255, 89, 0.1);
+  box-shadow: 0 0 0 2px rgba(208, 255, 89, 0.2);
 }
 
 .address-option.disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background: rgba(26, 26, 46, 0.2);
+  background: rgba(20, 20, 20, 0.2);
   border-color: var(--border-color);
 }
 
 .address-option.disabled:hover {
   border-color: var(--border-color);
-  background: rgba(26, 26, 46, 0.2);
+  background: rgba(20, 20, 20, 0.2);
 }
 
 .address-option-header {
@@ -1108,7 +1108,7 @@ onMounted(() => {
 .address-select {
   width: 100%;
   padding: 12px 15px;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   color: var(--text-primary);
@@ -1119,7 +1119,7 @@ onMounted(() => {
 .address-select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(208, 255, 89, 0.2);
 }
 
 .address-form-section {
@@ -1128,8 +1128,8 @@ onMounted(() => {
 
 /* Section de sauvegarde d'adresse */
 .save-address-section {
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(208, 255, 89, 0.05);
+  border: 1px solid rgba(208, 255, 89, 0.2);
   border-radius: 12px;
   padding: 20px;
   margin: 20px 0;
@@ -1193,7 +1193,7 @@ onMounted(() => {
 
 .form-group input,
 .form-group textarea {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 12px 15px;
@@ -1230,7 +1230,7 @@ onMounted(() => {
 .payment-method:hover,
 .payment-method.active {
   border-color: var(--primary-color);
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .payment-icon {
@@ -1252,14 +1252,14 @@ onMounted(() => {
 .stripe-payment-form {
   margin-top: 30px;
   padding: 20px;
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border: 1px solid var(--border-color);
   border-radius: 12px;
 }
 
 .stripe-element {
   padding: 15px;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   margin-bottom: 15px;
@@ -1304,8 +1304,8 @@ onMounted(() => {
   gap: 12px;
   margin: 30px 0;
   padding: 20px;
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(208, 255, 89, 0.05);
+  border: 1px solid rgba(208, 255, 89, 0.2);
   border-radius: 12px;
 }
 
@@ -1331,7 +1331,7 @@ onMounted(() => {
 }
 
 .order-summary {
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 20px;
@@ -1360,7 +1360,7 @@ onMounted(() => {
 }
 
 .summary-card {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 15px;
   padding: 30px;

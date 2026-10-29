@@ -374,13 +374,13 @@ onMounted(() => {
 }
 
 .management-header h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
 
 .add-btn {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
   padding: 12px 20px;
@@ -395,17 +395,17 @@ onMounted(() => {
 
 .add-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(208, 255, 89, 0.4);
 }
 
 .filters-section {
   display: flex;
   gap: 20px;
   align-items: center;
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .search-bar {
@@ -414,8 +414,8 @@ onMounted(() => {
 
 .search-input {
   width: 100%;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
@@ -427,8 +427,8 @@ onMounted(() => {
 }
 
 .filter-select {
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
@@ -436,9 +436,9 @@ onMounted(() => {
 }
 
 .products-table {
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border-radius: 10px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   overflow: hidden;
 }
 
@@ -447,10 +447,10 @@ onMounted(() => {
   grid-template-columns: 80px 2fr 80px 80px 100px 120px;
   gap: 15px;
   padding: 20px;
-  background: rgba(0, 212, 255, 0.1);
-  border-bottom: 1px solid #2e2e4a;
+  background: rgba(208, 255, 89, 0.1);
+  border-bottom: 1px solid var(--surface-2);
   font-weight: 600;
-  color: #00d4ff;
+  color: var(--primary-color);
 }
 
 .table-row {
@@ -458,12 +458,12 @@ onMounted(() => {
   grid-template-columns: 80px 2fr 80px 80px 100px 120px;
   gap: 15px;
   padding: 20px;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
   align-items: center;
 }
 
 .table-row:hover {
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(208, 255, 89, 0.05);
 }
 
 .empty-state {
@@ -486,7 +486,7 @@ onMounted(() => {
 }
 
 .price {
-  color: #00d4ff;
+  color: var(--primary-color);
   font-weight: 600;
 }
 
@@ -498,8 +498,8 @@ onMounted(() => {
 }
 
 .stock-badge.high {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  background: rgba(204, 240, 212, 0.2);
+  color: var(--accent-color);
 }
 
 .stock-badge.medium {
@@ -520,8 +520,8 @@ onMounted(() => {
 }
 
 .status-badge.active {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  background: rgba(204, 240, 212, 0.2);
+  color: var(--accent-color);
 }
 
 .status-badge.inactive {
@@ -536,7 +536,7 @@ onMounted(() => {
 
 .action-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
   padding: 8px;
   cursor: pointer;
@@ -545,13 +545,13 @@ onMounted(() => {
 }
 
 .action-btn.edit:hover {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .action-btn.toggle:hover {
-  border-color: #4ecdc4;
-  background: rgba(78, 205, 196, 0.1);
+  border-color: var(--accent-color);
+  background: rgba(204, 240, 212, 0.1);
 }
 
 .action-btn.delete:hover {
@@ -576,8 +576,8 @@ onMounted(() => {
 }
 
 .modal {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 2px solid #00d4ff;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 2px solid var(--primary-color);
   border-radius: 15px;
   padding: 30px;
   width: 100%;
@@ -594,7 +594,7 @@ onMounted(() => {
 }
 
 .modal-header h3 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -631,8 +631,8 @@ onMounted(() => {
 }
 
 .form-input, .form-textarea, .form-select {
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
@@ -640,8 +640,8 @@ onMounted(() => {
 
 .form-input:focus, .form-textarea:focus, .form-select:focus {
   outline: none;
-  border-color: #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(208, 255, 89, 0.3);
 }
 
 .checkbox-label {
@@ -674,9 +674,9 @@ onMounted(() => {
 }
 
 .btn-select-image {
-  background: rgba(0, 212, 255, 0.15);
-  border: 1px solid rgba(0, 212, 255, 0.4);
-  color: #00d4ff;
+  background: rgba(208, 255, 89, 0.15);
+  border: 1px solid rgba(208, 255, 89, 0.4);
+  color: var(--primary-color);
   padding: 10px 14px;
   border-radius: 8px;
   cursor: pointer;
@@ -687,7 +687,7 @@ onMounted(() => {
 }
 
 .btn-select-image:hover {
-  background: rgba(0, 212, 255, 0.3);
+  background: rgba(208, 255, 89, 0.3);
 }
 
 .gallery-previews {
@@ -708,7 +708,7 @@ onMounted(() => {
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .btn-remove-gallery {
@@ -735,7 +735,7 @@ onMounted(() => {
   height: 72px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(208, 255, 89, 0.3);
 }
 
 .btn {
@@ -747,13 +747,13 @@ onMounted(() => {
 }
 
 .btn-secondary {
-  background: #2e2e4a;
+  background: var(--surface-2);
   color: #e0e0e0;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
 }
@@ -815,7 +815,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid #2e2e4a;
+    border: 1px solid var(--surface-2);
     border-radius: 8px;
     margin-bottom: 10px;
   }

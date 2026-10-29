@@ -527,8 +527,8 @@ onUnmounted(() => {
 
 /* Section adresse optionnelle */
 .address-section {
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(208, 255, 89, 0.05);
+  border: 1px solid rgba(208, 255, 89, 0.2);
   border-radius: 12px;
   padding: 20px;
   margin: 20px 0;
@@ -571,7 +571,7 @@ onUnmounted(() => {
   align-items: flex-start;
   gap: 4px;
   padding: 12px 16px;
-  background: rgba(26, 26, 46, 0.6);
+  background: rgba(20, 20, 20, 0.6);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   cursor: pointer;
@@ -599,7 +599,7 @@ onUnmounted(() => {
 
 .form-input,
 .form-textarea {
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 12px 15px;
@@ -656,7 +656,7 @@ onUnmounted(() => {
 .strength-bar {
   width: 100%;
   height: 4px;
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   border-radius: 2px;
   overflow: hidden;
 }

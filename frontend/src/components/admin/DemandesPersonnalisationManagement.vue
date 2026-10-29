@@ -265,7 +265,7 @@ onMounted(loadDemandes)
 }
 
 .management-header h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
@@ -280,8 +280,8 @@ onMounted(loadDemandes)
 .stat-card {
   flex: 1;
   min-width: 100px;
-  background: rgba(26,26,46,0.6);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20,0.6);
+  border: 1px solid var(--surface-2);
   border-radius: 12px;
   padding: 18px 20px;
   display: flex;
@@ -296,7 +296,7 @@ onMounted(loadDemandes)
 .stat-value {
   font-size: 28px;
   font-weight: 900;
-  color: #00d4ff;
+  color: var(--primary-color);
 }
 .stat-card.pending .stat-value { color: #fbbf24; }
 .stat-card.done    .stat-value { color: #10b981; }
@@ -320,8 +320,8 @@ onMounted(loadDemandes)
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(26,26,46,0.6);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20,0.6);
+  border: 1px solid var(--surface-2);
   color: #a0a0a0;
   padding: 8px 18px;
   border-radius: 20px;
@@ -331,8 +331,8 @@ onMounted(loadDemandes)
   transition: all 0.2s;
 }
 
-.filter-btn:hover  { border-color: #00d4ff; color: #00d4ff; }
-.filter-btn.active { background: rgba(0,212,255,0.15); border-color: #00d4ff; color: #00d4ff; }
+.filter-btn:hover  { border-color: var(--primary-color); color: var(--primary-color); }
+.filter-btn.active { background: rgba(208, 255, 89,0.15); border-color: var(--primary-color); color: var(--primary-color); }
 
 .filter-badge {
   background: #fbbf24;
@@ -345,8 +345,8 @@ onMounted(loadDemandes)
 
 /* Table */
 .table-wrapper {
-  background: rgba(26,26,46,0.5);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20,0.5);
+  border: 1px solid var(--surface-2);
   border-radius: 12px;
   overflow-x: auto;
 }
@@ -364,15 +364,15 @@ onMounted(loadDemandes)
 }
 
 .demandes-table th {
-  background: rgba(0,212,255,0.08);
-  color: #00d4ff;
+  background: rgba(208, 255, 89,0.08);
+  color: var(--primary-color);
   padding: 12px 16px;
   text-align: left;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
 }
 
 .demandes-table td {
@@ -391,7 +391,7 @@ onMounted(loadDemandes)
 
 .td-client { display: flex; flex-direction: column; gap: 2px; }
 .client-nom   { font-weight: 600; color: #e0e0e0; }
-.client-email { font-size: 12px; color: #00d4ff; text-decoration: none; }
+.client-email { font-size: 12px; color: var(--primary-color); text-decoration: none; }
 .client-email:hover { text-decoration: underline; }
 
 .td-product { font-weight: 600; }
@@ -408,7 +408,7 @@ onMounted(loadDemandes)
   height: 36px;
   object-fit: cover;
   border-radius: 6px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .more-badge {
@@ -436,14 +436,14 @@ onMounted(loadDemandes)
 
 .action-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
   padding: 6px 9px;
   cursor: pointer;
   font-size: 14px;
   transition: all 0.2s;
 }
-.action-btn.view:hover   { border-color: #00d4ff; background: rgba(0,212,255,0.1); }
+.action-btn.view:hover   { border-color: var(--primary-color); background: rgba(208, 255, 89,0.1); }
 .action-btn.delete:hover { border-color: #ff6b6b; background: rgba(255,107,107,0.1); }
 
 /* Modal */
@@ -460,8 +460,8 @@ onMounted(loadDemandes)
 }
 
 .modal {
-  background: linear-gradient(135deg,#1a1a2e,#16213e);
-  border: 2px solid #00d4ff;
+  background: linear-gradient(135deg,var(--surface),var(--surface));
+  border: 2px solid var(--primary-color);
   border-radius: 14px;
   padding: 28px;
   width: 100%;
@@ -480,7 +480,7 @@ onMounted(loadDemandes)
   align-items: center;
 }
 
-.modal-header h3 { color: #00d4ff; margin: 0; font-size: 18px; }
+.modal-header h3 { color: var(--primary-color); margin: 0; font-size: 18px; }
 
 .close-btn {
   background: none; border: none; color: #e0e0e0;
@@ -490,7 +490,7 @@ onMounted(loadDemandes)
 .modal-section { display: flex; flex-direction: column; gap: 10px; }
 
 .section-title {
-  color: #00d4ff;
+  color: var(--primary-color);
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -507,7 +507,7 @@ onMounted(loadDemandes)
 
 .info-item {
   background: rgba(0,0,0,0.2);
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 10px 14px;
   display: flex;
@@ -517,7 +517,7 @@ onMounted(loadDemandes)
 
 .info-label { font-size: 11px; color: #a0a0a0; font-weight: 600; text-transform: uppercase; }
 .info-value { font-size: 14px; color: #e0e0e0; font-weight: 500; }
-.info-link  { font-size: 14px; color: #00d4ff; text-decoration: none; }
+.info-link  { font-size: 14px; color: var(--primary-color); text-decoration: none; }
 .info-link:hover { text-decoration: underline; }
 
 /* Gallery */
@@ -534,7 +534,7 @@ onMounted(loadDemandes)
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   flex-shrink: 0;
 }
 
@@ -568,8 +568,8 @@ onMounted(loadDemandes)
 .form-group label { color: #e0e0e0; font-size: 13px; font-weight: 600; }
 
 .form-select, .form-textarea {
-  background: rgba(26,26,46,0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20,0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 10px 12px;
   color: #e0e0e0;
@@ -581,7 +581,7 @@ onMounted(loadDemandes)
 
 .form-select:focus, .form-textarea:focus {
   outline: none;
-  border-color: #00d4ff;
+  border-color: var(--primary-color);
 }
 
 .form-textarea { resize: vertical; }
@@ -604,8 +604,8 @@ onMounted(loadDemandes)
 }
 .btn:hover { transform: translateY(-1px); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.btn-secondary { background: #2e2e4a; color: #e0e0e0; }
-.btn-primary   { background: linear-gradient(45deg,#00d4ff,#4ecdc4); color: #000; }
+.btn-secondary { background: var(--surface-2); color: #e0e0e0; }
+.btn-primary   { background: var(--primary-color); color: #000; }
 
 /* Lightbox */
 .lightbox {

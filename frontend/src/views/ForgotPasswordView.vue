@@ -122,7 +122,7 @@ const handleForgotPassword = async () => {
 }
 
 .auth-card {
-  background: rgba(26, 26, 46, 0.9);
+  background: rgba(20, 20, 20, 0.9);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -161,7 +161,7 @@ const handleForgotPassword = async () => {
   padding: 12px 16px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  background: rgba(26, 26, 46, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   color: var(--text-primary);
   font-size: 14px;
   transition: all 0.3s ease;
@@ -170,7 +170,7 @@ const handleForgotPassword = async () => {
 .form-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(208, 255, 89, 0.1);
 }
 
 .form-input:disabled {
@@ -222,7 +222,7 @@ const handleForgotPassword = async () => {
 }
 
 .email-info {
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(208, 255, 89, 0.1);
   padding: 15px;
   border-radius: 8px;
   margin: 20px 0;

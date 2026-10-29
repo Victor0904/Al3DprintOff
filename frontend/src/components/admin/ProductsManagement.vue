@@ -374,7 +374,8 @@ const loadProducts = async () => {
     if (response.ok) {
       products.value = await response.json()
     }
-  } catch (error) {  }
+  } catch (error) {
+  }
 }
 
 const loadCategories = async () => {
@@ -383,7 +384,8 @@ const loadCategories = async () => {
     if (response.ok) {
       categories.value = await response.json()
     }
-  } catch (error) {  }
+  } catch (error) {
+  }
 }
 
 const loadImages = async () => {
@@ -392,7 +394,8 @@ const loadImages = async () => {
     if (response.ok) {
       availableImages.value = await response.json()
     }
-  } catch (error) {  }
+  } catch (error) {
+  }
 }
 
 const getImageUrl = (chemin) => {
@@ -614,13 +617,13 @@ onMounted(() => {
 }
 
 .management-header h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
 
 .add-btn {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
   padding: 12px 20px;
@@ -635,17 +638,17 @@ onMounted(() => {
 
 .add-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(208, 255, 89, 0.4);
 }
 
 .filters-section {
   display: flex;
   gap: 20px;
   align-items: center;
-  background: rgba(26, 26, 46, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .search-bar {
@@ -654,8 +657,8 @@ onMounted(() => {
 
 .search-input {
   width: 100%;
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
@@ -667,8 +670,8 @@ onMounted(() => {
 }
 
 .filter-select {
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
@@ -682,8 +685,8 @@ onMounted(() => {
 }
 
 .product-card {
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -692,8 +695,8 @@ onMounted(() => {
 }
 
 .product-card:hover {
-  border-color: #00d4ff;
-  box-shadow: 0 5px 20px rgba(0, 212, 255, 0.2);
+  border-color: var(--primary-color);
+  box-shadow: 0 5px 20px rgba(208, 255, 89, 0.2);
   transform: translateY(-5px);
 }
 
@@ -701,7 +704,7 @@ onMounted(() => {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(208, 255, 89, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -760,7 +763,7 @@ onMounted(() => {
   gap: 10px;
   margin-top: auto;
   padding-top: 15px;
-  border-top: 1px solid #2e2e4a;
+  border-top: 1px solid var(--surface-2);
 }
 
 .product-thumb {
@@ -777,15 +780,15 @@ onMounted(() => {
 }
 
 .category-badge {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  background: rgba(204, 240, 212, 0.2);
+  color: var(--accent-color);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
 }
 
 .price {
-  color: #00d4ff;
+  color: var(--primary-color);
   font-weight: 600;
 }
 
@@ -797,8 +800,8 @@ onMounted(() => {
 }
 
 .stock-badge.high {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  background: rgba(204, 240, 212, 0.2);
+  color: var(--accent-color);
 }
 
 .stock-badge.medium {
@@ -819,8 +822,8 @@ onMounted(() => {
 }
 
 .status-badge.active {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  background: rgba(204, 240, 212, 0.2);
+  color: var(--accent-color);
 }
 
 .status-badge.inactive {
@@ -835,7 +838,7 @@ onMounted(() => {
 
 .action-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
   padding: 8px;
   cursor: pointer;
@@ -844,13 +847,13 @@ onMounted(() => {
 }
 
 .action-btn.edit:hover {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--primary-color);
+  background: rgba(208, 255, 89, 0.1);
 }
 
 .action-btn.toggle:hover {
-  border-color: #4ecdc4;
-  background: rgba(78, 205, 196, 0.1);
+  border-color: var(--accent-color);
+  background: rgba(204, 240, 212, 0.1);
 }
 
 .action-btn.delete:hover {
@@ -875,8 +878,8 @@ onMounted(() => {
 }
 
 .modal {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 2px solid #00d4ff;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 100%);
+  border: 2px solid var(--primary-color);
   border-radius: 15px;
   padding: 30px;
   width: 100%;
@@ -895,7 +898,7 @@ onMounted(() => {
 }
 
 .modal-header h3 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -932,8 +935,8 @@ onMounted(() => {
 }
 
 .form-input, .form-textarea, .form-select {
-  background: rgba(26, 26, 46, 0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
@@ -944,8 +947,8 @@ onMounted(() => {
 
 .form-input:focus, .form-textarea:focus, .form-select:focus {
   outline: none;
-  border-color: #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(208, 255, 89, 0.3);
 }
 
 .checkbox-label {
@@ -963,8 +966,8 @@ onMounted(() => {
 .form-section {
   margin: 30px 0;
   padding: 20px;
-  background: rgba(26, 26, 46, 0.5);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid var(--surface-2);
   border-radius: 10px;
 }
 
@@ -976,15 +979,15 @@ onMounted(() => {
 }
 
 .section-header h4 {
-  color: #4ecdc4;
+  color: var(--accent-color);
   margin: 0;
   font-size: 18px;
 }
 
 .btn-add-variante {
   padding: 8px 16px;
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
-  color: white;
+  background: var(--primary-color);
+  color: #050505;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -995,7 +998,7 @@ onMounted(() => {
 
 .btn-add-variante:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(208, 255, 89, 0.3);
 }
 
 .variantes-list {
@@ -1006,7 +1009,7 @@ onMounted(() => {
 
 .variante-item {
   background: rgba(10, 10, 10, 0.5);
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 15px;
 }
@@ -1019,7 +1022,7 @@ onMounted(() => {
 }
 
 .variante-header h5 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 16px;
 }
@@ -1090,10 +1093,10 @@ onMounted(() => {
 
 .btn-select-image {
   padding: 12px 16px;
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid #00d4ff;
+  background: rgba(208, 255, 89, 0.1);
+  border: 1px solid var(--primary-color);
   border-radius: 8px;
-  color: #00d4ff;
+  color: var(--primary-color);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -1103,7 +1106,7 @@ onMounted(() => {
 }
 
 .btn-select-image:hover {
-  background: rgba(0, 212, 255, 0.2);
+  background: rgba(208, 255, 89, 0.2);
   transform: translateY(-2px);
 }
 
@@ -1112,7 +1115,7 @@ onMounted(() => {
   width: 100%;
   max-width: 200px;
   height: 150px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   overflow: hidden;
   background: rgba(10, 10, 10, 0.5);
@@ -1145,13 +1148,13 @@ onMounted(() => {
 }
 
 .btn-secondary {
-  background: #2e2e4a;
+  background: var(--surface-2);
   color: #e0e0e0;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
 }
@@ -1236,7 +1239,7 @@ onMounted(() => {
   position: relative;
   width: 80px;
   height: 80px;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   overflow: hidden;
 }

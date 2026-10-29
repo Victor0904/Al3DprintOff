@@ -65,7 +65,7 @@
                         !item.image || !getImageUrl(item.image) ? 'flex' : 'none'
                     }"
                   >
-                    <span class="placeholder-icon">🔮</span>
+                    <img src="/placeholder.svg" alt="" class="placeholder-img">
                   </div>
                 </div>
 
@@ -507,9 +507,9 @@ const handleImageError = (event) => {
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: rgba(0, 212, 255, 0.08);
-  border-top: 1px solid rgba(0, 212, 255, 0.2);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(208, 255, 89, 0.08);
+  border-top: 1px solid rgba(208, 255, 89, 0.2);
+  border-bottom: 1px solid rgba(208, 255, 89, 0.2);
   font-size: 13px;
   color: var(--text-secondary);
 }
@@ -519,12 +519,12 @@ const handleImageError = (event) => {
 }
 
 .shipping-banner-free {
-  background: rgba(78, 205, 196, 0.08);
-  border-color: rgba(78, 205, 196, 0.25);
+  background: rgba(204, 240, 212, 0.08);
+  border-color: rgba(204, 240, 212, 0.25);
 }
 
 .shipping-banner-free strong {
-  color: #4ecdc4;
+  color: var(--accent-color);
 }
 
 .shipping-banner-icon {
@@ -533,7 +533,7 @@ const handleImageError = (event) => {
 }
 
 .delivery-free {
-  color: #4ecdc4;
+  color: var(--accent-color);
   font-weight: 600;
 }
 
@@ -553,6 +553,12 @@ const handleImageError = (event) => {
   .cart-drawer {
     max-width: 100%;
   }
+}
+
+.placeholder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
 

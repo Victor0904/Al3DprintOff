@@ -223,13 +223,13 @@ onMounted(loadCodes)
 }
 
 .management-header h2 {
-  color: #00d4ff;
+  color: var(--primary-color);
   margin: 0;
   font-size: 28px;
 }
 
 .add-btn {
-  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  background: var(--primary-color);
   color: #000;
   border: none;
   padding: 12px 20px;
@@ -238,12 +238,12 @@ onMounted(loadCodes)
   font-weight: 700;
   transition: all 0.3s;
 }
-.add-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,212,255,0.4); }
+.add-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(208, 255, 89,0.4); }
 
 /* Table */
 .table-wrapper {
-  background: rgba(26,26,46,0.6);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20,0.6);
+  border: 1px solid var(--surface-2);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -260,15 +260,15 @@ onMounted(loadCodes)
 }
 
 .promo-table th {
-  background: rgba(0,212,255,0.08);
-  color: #00d4ff;
+  background: rgba(208, 255, 89,0.08);
+  color: var(--primary-color);
   padding: 14px 20px;
   text-align: left;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid #2e2e4a;
+  border-bottom: 1px solid var(--surface-2);
 }
 
 .promo-table td {
@@ -282,8 +282,8 @@ onMounted(loadCodes)
 .promo-table tr.inactive td  { opacity: 0.5; }
 
 .code-chip {
-  background: rgba(0,212,255,0.12);
-  color: #00d4ff;
+  background: rgba(208, 255, 89,0.12);
+  color: var(--primary-color);
   font-family: monospace;
   font-size: 14px;
   font-weight: 700;
@@ -293,7 +293,7 @@ onMounted(loadCodes)
 }
 
 .remise-cell {
-  color: #4ecdc4;
+  color: var(--accent-color);
   font-weight: 700;
   font-size: 16px;
 }
@@ -304,7 +304,7 @@ onMounted(loadCodes)
   font-size: 12px;
   font-weight: 600;
 }
-.status-badge.active { background: rgba(78,205,196,0.15); color: #4ecdc4; }
+.status-badge.active { background: rgba(204, 240, 212,0.15); color: var(--accent-color); }
 .status-badge.paused { background: rgba(255,193,7,0.15);  color: #ffc107; }
 
 .date-cell { color: #a0a0a0; font-size: 13px; }
@@ -313,15 +313,15 @@ onMounted(loadCodes)
 
 .action-btn {
   background: none;
-  border: 1px solid #2e2e4a;
+  border: 1px solid var(--surface-2);
   border-radius: 6px;
   padding: 7px 10px;
   cursor: pointer;
   font-size: 14px;
   transition: all 0.2s;
 }
-.action-btn.edit:hover   { border-color: #00d4ff; background: rgba(0,212,255,0.1); }
-.action-btn.toggle:hover { border-color: #4ecdc4; background: rgba(78,205,196,0.1); }
+.action-btn.edit:hover   { border-color: var(--primary-color); background: rgba(208, 255, 89,0.1); }
+.action-btn.toggle:hover { border-color: var(--accent-color); background: rgba(204, 240, 212,0.1); }
 .action-btn.delete:hover { border-color: #ff6b6b; background: rgba(255,107,107,0.1); }
 
 /* Modal */
@@ -338,8 +338,8 @@ onMounted(loadCodes)
 }
 
 .modal {
-  background: linear-gradient(135deg,#1a1a2e,#16213e);
-  border: 2px solid #00d4ff;
+  background: linear-gradient(135deg,var(--surface),var(--surface));
+  border: 2px solid var(--primary-color);
   border-radius: 14px;
   padding: 30px;
   width: 100%;
@@ -353,7 +353,7 @@ onMounted(loadCodes)
   align-items: center;
   margin-bottom: 24px;
 }
-.modal-header h3 { color: #00d4ff; margin: 0; }
+.modal-header h3 { color: var(--primary-color); margin: 0; }
 
 .close-btn {
   background: none; border: none; color: #e0e0e0;
@@ -368,15 +368,15 @@ onMounted(loadCodes)
 .hint { color: #a0a0a0; font-size: 11px; }
 
 .form-input {
-  background: rgba(26,26,46,0.8);
-  border: 1px solid #2e2e4a;
+  background: rgba(20, 20, 20,0.8);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   padding: 12px;
   color: #e0e0e0;
   width: 100%;
   box-sizing: border-box;
 }
-.form-input:focus { outline: none; border-color: #00d4ff; }
+.form-input:focus { outline: none; border-color: var(--primary-color); }
 
 .input-suffix-wrapper { position: relative; }
 .input-suffix-wrapper .form-input { padding-right: 36px; }
@@ -414,6 +414,6 @@ onMounted(loadCodes)
 .btn:hover { transform: translateY(-1px); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-.btn-secondary { background: #2e2e4a; color: #e0e0e0; border: 1px solid #2e2e4a; }
-.btn-primary   { background: linear-gradient(45deg,#00d4ff,#4ecdc4); color: #000; border: none; }
+.btn-secondary { background: var(--surface-2); color: #e0e0e0; border: 1px solid var(--surface-2); }
+.btn-primary   { background: var(--primary-color); color: #000; border: none; }
 </style>

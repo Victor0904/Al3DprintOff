@@ -381,7 +381,7 @@ export default {
             </linearGradient>
           </defs>
           <rect width="150" height="150" fill="url(#grad1)" stroke="#dee2e6" stroke-width="2" rx="8"/>
-          <circle cx="75" cy="60" r="20" fill="#667eea" opacity="0.3"/>
+          <circle cx="75" cy="60" r="20" fill="#d0ff59" opacity="0.3"/>
           <text x="75" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#495057">
             ${product.nom.length > 18 ? product.nom.substring(0, 18) + '...' : product.nom}
           </text>
@@ -414,7 +414,7 @@ export default {
           <td style="padding:10px 8px;border-bottom:1px solid #e8e8e8;color:#333;">${item.produit?.nom || 'Article'}</td>
           <td style="padding:10px 8px;border-bottom:1px solid #e8e8e8;text-align:center;color:#555;">${qty}</td>
           <td style="padding:10px 8px;border-bottom:1px solid #e8e8e8;text-align:right;color:#555;">${pu} €</td>
-          <td style="padding:10px 8px;border-bottom:1px solid #e8e8e8;text-align:right;font-weight:700;color:#1a1a2e;">${tot} €</td>
+          <td style="padding:10px 8px;border-bottom:1px solid #e8e8e8;text-align:right;font-weight:700;color:#141414;">${tot} €</td>
         </tr>`
       }
 
@@ -436,40 +436,40 @@ export default {
   body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #222; background: #fff; }
   .page { padding: 0; }
   /* Header */
-  .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 18px; border-bottom: 3px solid #00d4ff; margin-bottom: 24px; }
-  .logo { font-size: 28px; font-weight: 900; color: #00d4ff; letter-spacing: -1px; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 18px; border-bottom: 3px solid #d0ff59; margin-bottom: 24px; }
+  .logo { font-size: 28px; font-weight: 900; color: #d0ff59; letter-spacing: -1px; }
   .logo-sub { font-size: 10px; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 3px; }
   .invoice-meta { text-align: right; }
-  .invoice-title { font-size: 22px; font-weight: 700; color: #1a1a2e; letter-spacing: 2px; text-transform: uppercase; }
-  .invoice-num { font-size: 14px; color: #00d4ff; font-weight: 700; margin-top: 4px; font-family: monospace; }
+  .invoice-title { font-size: 22px; font-weight: 700; color: #141414; letter-spacing: 2px; text-transform: uppercase; }
+  .invoice-num { font-size: 14px; color: #d0ff59; font-weight: 700; margin-top: 4px; font-family: monospace; }
   .invoice-date { font-size: 11px; color: #888; margin-top: 3px; }
   /* Two columns */
   .two-col { display: flex; gap: 24px; margin-bottom: 24px; }
   .col { flex: 1; }
-  .section-label { font-size: 10px; font-weight: 700; color: #00d4ff; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .section-label { font-size: 10px; font-weight: 700; color: #d0ff59; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
   .info-box { background: #f8f9fc; border: 1px solid #e8eaf0; border-radius: 6px; padding: 14px 16px; font-size: 12px; line-height: 1.8; color: #444; }
-  .info-box strong { color: #1a1a2e; font-size: 13px; display: block; margin-bottom: 2px; }
+  .info-box strong { color: #141414; font-size: 13px; display: block; margin-bottom: 2px; }
   /* Table */
   table.items { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-  table.items thead tr { background: #1a1a2e; }
-  table.items thead th { padding: 10px 8px; color: #00d4ff; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+  table.items thead tr { background: #141414; }
+  table.items thead th { padding: 10px 8px; color: #d0ff59; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
   table.items thead th:first-child { text-align: left; }
   table.items thead th:nth-child(2) { text-align: center; }
   table.items thead th:nth-child(3), table.items thead th:nth-child(4) { text-align: right; }
   /* Totals */
   .totals { width: 300px; margin-left: auto; }
   .totals-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; color: #555; border-bottom: 1px solid #f0f0f0; }
-  .totals-row.total { padding-top: 10px; border-top: 2px solid #00d4ff; border-bottom: none; margin-top: 6px; }
-  .totals-row.total .label { font-size: 15px; font-weight: 700; color: #1a1a2e; }
-  .totals-row.total .val { font-size: 18px; font-weight: 900; color: #00d4ff; }
+  .totals-row.total { padding-top: 10px; border-top: 2px solid #d0ff59; border-bottom: none; margin-top: 6px; }
+  .totals-row.total .label { font-size: 15px; font-weight: 700; color: #141414; }
+  .totals-row.total .val { font-size: 18px; font-weight: 900; color: #d0ff59; }
   /* Paid stamp */
   .paid-area { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; }
-  .statut-badge { padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; background: #1a1a2e; color: #00d4ff; letter-spacing: 0.5px; text-transform: uppercase; }
+  .statut-badge { padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; background: #141414; color: #d0ff59; letter-spacing: 0.5px; text-transform: uppercase; }
   .paid-stamp { border: 3px solid #059669; border-radius: 6px; color: #059669; font-size: 20px; font-weight: 900; padding: 6px 18px; letter-spacing: 3px; transform: rotate(-4deg); display: inline-block; }
   /* Footer */
   .footer { margin-top: 32px; padding-top: 14px; border-top: 1px solid #e0e0e0; text-align: center; font-size: 10px; color: #aaa; line-height: 1.7; }
   /* Print button — hidden on print */
-  .print-btn { position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #00d4ff, #4ecdc4); color: #000; border: none; padding: 12px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; cursor: pointer; z-index: 999; box-shadow: 0 4px 15px rgba(0,212,255,0.4); }
+  .print-btn { position: fixed; top: 20px; right: 20px; background: #d0ff59; color: #000; border: none; padding: 12px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; cursor: pointer; z-index: 999; box-shadow: 0 4px 15px rgba(208, 255, 89,0.4); }
   @media print { .print-btn { display: none !important; } @page { margin: 15mm 18mm; } }
 </style>
 </head>
@@ -639,7 +639,7 @@ export default {
 }
 
 .btn-invoice {
-  background: linear-gradient(135deg, #00d4ff, #4ecdc4);
+  background: #d0ff59;
   color: #000;
   font-weight: 700;
   padding: 0.65rem 1.4rem;
@@ -653,7 +653,7 @@ export default {
 
 .btn-invoice:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(208, 255, 89, 0.4);
 }
 
 .btn-invoice:disabled {
@@ -829,12 +829,12 @@ export default {
 }
 
 .free-shipping {
-  color: #4ecdc4;
+  color: #ccf0d4;
   font-weight: 600;
 }
 
 .summary-row-total {
-  border-top: 2px solid rgba(0, 212, 255, 0.3);
+  border-top: 2px solid rgba(208, 255, 89, 0.3);
   margin-top: 6px;
   padding-top: 10px;
 }
