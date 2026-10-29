@@ -133,6 +133,7 @@
             <div class="image-selector">
               <select v-model="productForm.image_principale" class="form-select">
                 <option value="">Aucune image</option>
+                <option v-if="productForm.image_principale && !availableImages.some(i => i.chemin === productForm.image_principale)" :value="productForm.image_principale">Image actuelle ({{ productForm.image_principale.split('/').slice(-3).join('/') }})</option>
                 <option v-for="image in availableImages" :key="image.id" :value="image.chemin">
                   {{ image.nom }} ({{ image.chemin }})
                 </option>
@@ -204,6 +205,7 @@
                       <div class="image-selector">
                         <select v-model="variante.image_url" class="form-select">
                           <option value="">Aucune image</option>
+                          <option v-if="variante.image_url && !availableImages.some(i => i.chemin === variante.image_url)" :value="variante.image_url">Image actuelle ({{ variante.image_url.split('/').slice(-3).join('/') }})</option>
                           <option v-for="image in availableImages" :key="image.id" :value="image.chemin">
                             {{ image.nom }} ({{ image.chemin }})
                           </option>
@@ -219,6 +221,10 @@
                     <div class="form-group">
                       <label>Référence</label>
                       <input v-model="variante.reference" type="text" class="form-input" placeholder="Référence unique">
+                    </div>
+                    <div class="form-group">
+                      <label>Vidéo 360° <span class="optional">(optionnel)</span></label>
+                      <input v-model="variante.video_url" type="text" class="form-input" placeholder="/catalogue/produit/coloris/video.mp4">
                     </div>
                   </div>
                   <!-- Galerie variante -->
@@ -467,6 +473,7 @@ const addVariante = () => {
     nom_couleur: '',
     code_couleur: '#000000',
     image_url: '',
+    video_url: '',
     reference: '',
     stock: 0,
     actif: true,

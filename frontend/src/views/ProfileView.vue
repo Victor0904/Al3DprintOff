@@ -523,6 +523,7 @@ const validatePhone = (event) => {
 const getStatusClass = (status) => {
   const statusClasses = {
     'en attente': 'status-pending',
+    'payée': 'status-processing',
     'en cours': 'status-processing',
     'expédiée': 'status-shipped',
     'livrée': 'status-delivered',
@@ -533,7 +534,8 @@ const getStatusClass = (status) => {
 
 const getStatusText = (status) => {
   const statusTexts = {
-    'en attente': 'En attente',
+    'en attente': 'En attente de paiement',
+    'payée': 'Payée',
     'en cours': 'En cours de traitement',
     'expédiée': 'Expédiée',
     'livrée': 'Livrée',

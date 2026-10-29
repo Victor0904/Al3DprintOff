@@ -103,7 +103,7 @@
               </div>
               <div v-if="order.adresse_livraison" class="summary-row">
                 <span>Adresse de livraison</span>
-                <span>{{ order.adresse_livraison }}</span>
+                <span style="white-space: pre-line">{{ order.adresse_livraison }}</span>
               </div>
             </div>
           </div>
@@ -306,6 +306,7 @@ export default {
     const getStatusClass = (status) => {
       const statusClasses = {
         'en attente': 'status-pending',
+        'payée': 'status-processing',
         'en cours': 'status-processing',
         'expédiée': 'status-shipped',
         'livrée': 'status-delivered',
@@ -316,7 +317,8 @@ export default {
 
     const getStatusText = (status) => {
       const statusTexts = {
-        'en attente': 'En attente',
+        'en attente': 'En attente de paiement',
+        'payée': 'Payée',
         'en cours': 'En cours de traitement',
         'expédiée': 'Expédiée',
         'livrée': 'Livrée',

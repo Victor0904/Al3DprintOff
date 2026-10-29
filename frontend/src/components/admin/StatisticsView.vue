@@ -79,7 +79,7 @@ const loadStatistics = async () => {
       })
       
       // Calculer la somme des ventes du mois
-      monthlySales.value = monthlyOrders.reduce((sum, order) => {
+      monthlySales.value = monthlyOrders.filter(order => !['En attente', 'Annulée'].includes(order.statut)).reduce((sum, order) => {
         const orderTotal = parseFloat(order.total || 0)
         if (isNaN(orderTotal)) return sum
         return sum + orderTotal

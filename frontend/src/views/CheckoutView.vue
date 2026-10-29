@@ -425,7 +425,13 @@ const isCartEmpty = computed(() => cartStore.items.length === 0)
       const orderData = {
         client_id: userId,
         statut: 'en attente',
-        adresse_livraison: `${checkoutForm.address}, ${checkoutForm.postalCode} ${checkoutForm.city}`,
+        // Destinataire + adresse + téléphone : tout ce qu'il faut pour l'étiquette du colis
+        adresse_livraison: [
+          `${checkoutForm.firstName} ${checkoutForm.lastName}`.trim(),
+          checkoutForm.address,
+          `${checkoutForm.postalCode} ${checkoutForm.city}`,
+          checkoutForm.phone ? `Tél. ${checkoutForm.phone}` : ''
+        ].filter(Boolean).join('\n'),
         mode_paiement: selectedPayment.value === 'card' ? 'stripe' : getPaymentMethodKey(selectedPayment.value),
         code_promo: cartStore.promoCode || null,
         details: cartStore.items.map(item => {

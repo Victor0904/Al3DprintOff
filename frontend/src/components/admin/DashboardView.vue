@@ -96,7 +96,7 @@
             <span class="order-status" :class="order.statut">{{ order.statut }}</span>
           </div>
           <div class="order-date">
-            {{ formatDate(order.date_creation) }}
+            {{ formatDate(order.date_commande) }}
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ const loadStats = async () => {
     if (productsRes.ok) {
       const products = await productsRes.json()
       stats.value.totalProducts = products.length
-      recentProducts.value = products.slice(0, 5)
+      recentProducts.value = [...products].sort((a, b) => b.id - a.id).slice(0, 5)
     }
 
     if (usersRes.ok) {
@@ -169,9 +169,10 @@ const loadStats = async () => {
       stats.value.totalOrders = orders.length
       recentOrders.value = orders.slice(0, 5)
 
-      stats.value.totalRevenue = orders.reduce((sum, order) => {
-        return sum + parseFloat(order.total || 0)
-      }, 0)
+      // Seules les commandes encaissées comptent dans le chiffre d'affaires
+      stats.value.totalRevenue = orders
+        .filter(order => !['En attente', 'Annulée'].includes(order.statut))
+        .reduce((sum, order) => sum + parseFloat(order.total || 0), 0)
     }
   } catch {
     // silently ignore

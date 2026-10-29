@@ -21,10 +21,11 @@
             @change="updateStatus(order, $event.target.value)"
             class="status-select"
           >
-            <option value="En attente">En attente</option>
+            <option value="En attente">En attente (non payée)</option>
+            <option value="Payée">Payée</option>
             <option value="En cours">En cours</option>
-            <option value="Expédié">Expédié</option>
-            <option value="Terminé">Terminé</option>
+            <option value="Expédiée">Expédiée</option>
+            <option value="Livrée">Livrée</option>
             <option value="Annulée">Annulée</option>
           </select>
         </div>
@@ -117,6 +118,10 @@
               <div class="info-item" v-if="orderDetails.client.telephone">
                 <span class="info-label">Téléphone :</span>
                 <span class="info-value">{{ orderDetails.client.telephone }}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Type :</span>
+                <span class="info-value">{{ orderDetails.client.type_client === 'entreprise' ? 'Entreprise' : 'Particulier' }}</span>
               </div>
             </div>
           </div>

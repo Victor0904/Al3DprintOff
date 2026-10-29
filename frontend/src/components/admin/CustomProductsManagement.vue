@@ -114,12 +114,18 @@
             <label>Stock</label>
             <input v-model="productForm.stock" type="number" required class="form-input">
           </div>
+
+          <div class="form-group">
+            <label>Vidéo 360° (optionnel)</label>
+            <input v-model="productForm.video_url" type="text" class="form-input" placeholder="/catalogue/produit/defaut/video.mp4">
+          </div>
           
           <div class="form-group">
             <label>Image principale</label>
             <div class="image-selector">
               <select v-model="productForm.image_principale" class="form-select">
                 <option value="">Aucune image principale</option>
+                <option v-if="productForm.image_principale && !availableImages.some(i => i.chemin === productForm.image_principale)" :value="productForm.image_principale">Image actuelle ({{ productForm.image_principale.split('/').slice(-3).join('/') }})</option>
                 <option v-for="image in availableImages" :key="image.id" :value="image.chemin">
                   {{ image.nom }} ({{ image.chemin }})
                 </option>
@@ -190,6 +196,7 @@ const productForm = ref({
   prix: 0,
   stock: 0,
   image_principale: '',
+  video_url: '',
   images: [],
   actif: true
 })
@@ -264,6 +271,7 @@ const editProduct = async (product) => {
     prix: product.prix,
     stock: product.stock,
     image_principale: product.image_principale || '',
+    video_url: product.video_url || '',
     images: [],
     actif: product.actif
   }
@@ -348,6 +356,7 @@ const closeModal = () => {
     prix: 0,
     stock: 0,
     image_principale: '',
+    video_url: '',
     images: [],
     actif: true
   }

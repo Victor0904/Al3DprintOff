@@ -205,6 +205,7 @@ class ProduitsController extends SecuredApiController
                     $variante->setNomCouleur($varianteData['nom_couleur'] ?? '');
                     $variante->setCodeCouleur($varianteData['code_couleur'] ?? null);
                     $variante->setImageUrl($varianteData['image_url'] ?? null);
+                    $variante->setVideoUrl(($varianteData['video_url'] ?? null) ?: null);
                     $variante->setReference($varianteData['reference'] ?? null);
                     $variante->setStock($varianteData['stock'] ?? 0);
                     $variante->setActif($varianteData['actif'] ?? true);
@@ -339,6 +340,7 @@ class ProduitsController extends SecuredApiController
                             : null
                     );
                     $variante->setImageUrl($varianteData['image_url'] ?? null);
+                    $variante->setVideoUrl(($varianteData['video_url'] ?? null) ?: null);
                     $variante->setReference($varianteData['reference'] ?? null);
                     $variante->setStock($varianteData['stock'] ?? 0);
                     $variante->setActif($varianteData['actif'] ?? true);

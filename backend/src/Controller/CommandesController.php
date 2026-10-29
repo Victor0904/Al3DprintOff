@@ -8,6 +8,7 @@ use App\Entity\CodePromo;
 use App\Entity\Produits;
 use App\Entity\DetailsCommande;
 use App\Service\EmailService;
+use App\Service\EncryptionService;
 use App\Service\TokenService;
 use Doctrine\ORM\EntityManagerInterface;
 use Dompdf\Dompdf;
@@ -26,7 +27,7 @@ class CommandesController extends SecuredApiController
     private EntityManagerInterface $entityManager;
     private EmailService $emailService;
 
-    public function __construct(EntityManagerInterface $entityManager, TokenService $tokenService, EmailService $emailService)
+    public function __construct(EntityManagerInterface $entityManager, TokenService $tokenService, EmailService $emailService, private EncryptionService $encryption)
     {
         parent::__construct($tokenService);
         $this->entityManager = $entityManager;
@@ -122,12 +123,7 @@ class CommandesController extends SecuredApiController
         $data = [
             'id'               => $commande->getId(),
             'numero_commande'  => $commande->getNumeroCommande(),
-            'client'           => [
-                'id'        => $commande->getClient()->getId(),
-                'nom'       => $commande->getClient()->getNom(),
-                'email'     => $commande->getClient()->getEmail(),
-                'telephone' => $commande->getClient()->getTelephone(),
-            ],
+            'client'           => $this->clientData($commande),
             'date_commande'    => $commande->getDateCommande()->format('Y-m-d H:i:s'),
             'statut'           => $commande->getStatut(),
             'total'            => $commande->getTotal(),
@@ -544,17 +540,26 @@ class CommandesController extends SecuredApiController
         };
     }
 
+    private function clientData(Commandes $commande): array
+    {
+        $client = $commande->getClient();
+
+        return [
+            'id'          => $client->getId(),
+            'nom'         => $client->getNom(),
+            'email'       => $client->getEmail(),
+            // Le téléphone est chiffré en base
+            'telephone'   => $this->encryption->decryptArray(['telephone' => $client->getTelephone()])['telephone'],
+            'type_client' => $client->getTypeClient(),
+        ];
+    }
+
     private function getOrderData(Commandes $commande): array
     {
         $data = [
             'id'               => $commande->getId(),
             'numero_commande'  => $commande->getNumeroCommande(),
-            'client'           => [
-                'id'        => $commande->getClient()->getId(),
-                'nom'       => $commande->getClient()->getNom(),
-                'email'     => $commande->getClient()->getEmail(),
-                'telephone' => $commande->getClient()->getTelephone(),
-            ],
+            'client'           => $this->clientData($commande),
             'date_commande'    => $commande->getDateCommande()->format('Y-m-d H:i:s'),
             'statut'           => $commande->getStatut(),
             'total'            => $commande->getTotal(),
@@ -563,6 +568,7 @@ class CommandesController extends SecuredApiController
             'mode_paiement'    => $this->formatPaymentMethod($commande->getModePaiement()),
             'mode_paiement_raw' => $commande->getModePaiement(),
             'numero_suivi'     => $commande->getNumeroSuivi(),
+            'paye'             => $commande->getPaiements()->exists(fn($k, $p) => $p->getStatut() === 'payé'),
             'details'          => [],
         ];
 
@@ -589,7 +595,7 @@ class CommandesController extends SecuredApiController
         $clientNom      = htmlspecialchars($orderData['client']['nom'] ?? '', ENT_QUOTES, 'UTF-8');
         $clientEmail    = htmlspecialchars($orderData['client']['email'] ?? '', ENT_QUOTES, 'UTF-8');
         $clientTel      = htmlspecialchars($orderData['client']['telephone'] ?? '', ENT_QUOTES, 'UTF-8');
-        $adresse        = htmlspecialchars($orderData['adresse_livraison'] ?? '', ENT_QUOTES, 'UTF-8');
+        $adresse        = nl2br(htmlspecialchars($orderData['adresse_livraison'] ?? '', ENT_QUOTES, 'UTF-8'));
         $dateCommande   = htmlspecialchars($orderData['date_commande'] ?? '', ENT_QUOTES, 'UTF-8');
         $dateParts      = explode(' ', $dateCommande);
         $dateFormatted  = $dateParts[0] ?? $dateCommande;
@@ -597,8 +603,7 @@ class CommandesController extends SecuredApiController
         $statut         = htmlspecialchars($orderData['statut'] ?? '', ENT_QUOTES, 'UTF-8');
         $fraisLivraison = (float)($orderData['frais_livraison'] ?? 0);
         $totalTTC       = (float)($orderData['total'] ?? 0);
-        $sousTotalHT    = $totalTTC - $fraisLivraison;
-        $tva            = $sousTotalHT * 0.20;
+        $sousTotal      = $totalTTC - $fraisLivraison;
         $currentYear    = date('Y');
         $dateFacture    = date('d/m/Y');
 
@@ -606,6 +611,9 @@ class CommandesController extends SecuredApiController
         $lignes = '';
         foreach ($orderData['details'] ?? [] as $item) {
             $nom      = htmlspecialchars($item['produit']['nom'] ?? 'Article', ENT_QUOTES, 'UTF-8');
+            if (!empty($item['personnalisation']['variante_nom'])) {
+                $nom .= '<br><span style="color:#888;font-size:11px;">Coloris : ' . htmlspecialchars($item['personnalisation']['variante_nom'], ENT_QUOTES, 'UTF-8') . '</span>';
+            }
             $qty      = (int)($item['quantite'] ?? 1);
             $pu       = (float)($item['prix_unitaire'] ?? 0);
             $total    = $pu * $qty;
@@ -618,10 +626,12 @@ class CommandesController extends SecuredApiController
         }
 
         $totalTTCFormatted   = number_format($totalTTC, 2, ',', ' ');
+        $sousTotalFormatted  = number_format($sousTotal, 2, ',', ' ');
+        $tamponPaye          = !empty($orderData['paye']) ? '<br><span class="paid-stamp">PAYÉ</span>' : '';
         $fraisFormatted      = $fraisLivraison > 0 ? number_format($fraisLivraison, 2, ',', ' ') . ' &euro;' : 'Gratuit';
 
         $statutColor = match(strtolower($statut)) {
-            'payé', 'paye', 'livrée', 'livree', 'expédiée', 'expediee' => '#059669',
+            'payée', 'payé', 'paye', 'livrée', 'livree', 'expédiée', 'expediee' => '#059669',
             'en attente' => '#d97706',
             'annulée', 'annulee' => '#dc2626',
             default => '#2563eb',
@@ -743,7 +753,7 @@ class CommandesController extends SecuredApiController
   <table class="totals-table">
     <tr>
       <td class="label">Sous-total articles</td>
-      <td class="val">{$totalTTCFormatted} &euro;</td>
+      <td class="val">{$sousTotalFormatted} &euro;</td>
     </tr>
     <tr>
       <td class="label">Frais de livraison</td>
@@ -762,8 +772,7 @@ class CommandesController extends SecuredApiController
   <!-- Statut + tampon payé -->
   <div style="margin-top:20px; text-align:right;">
     <span class="statut-badge">{$statut}</span>
-    <br>
-    <span class="paid-stamp">PAYÉ</span>
+    {$tamponPaye}
   </div>
 
   <!-- Pied de page -->

@@ -110,7 +110,7 @@ class EmailService
         $orderDate = htmlspecialchars($orderData['date_commande'] ?? '', ENT_QUOTES, 'UTF-8');
         $status = htmlspecialchars($orderData['statut'] ?? '', ENT_QUOTES, 'UTF-8');
         $total = htmlspecialchars(number_format($orderData['total'] ?? 0, 2, ',', ' ') . '€', ENT_QUOTES, 'UTF-8');
-        $deliveryAddress = htmlspecialchars($orderData['adresse_livraison'] ?? 'Non spécifiée', ENT_QUOTES, 'UTF-8');
+        $deliveryAddress = nl2br(htmlspecialchars($orderData['adresse_livraison'] ?? 'Non spécifiée', ENT_QUOTES, 'UTF-8'));
         $trackingNumber = htmlspecialchars($orderData['numero_suivi'] ?? 'Non disponible', ENT_QUOTES, 'UTF-8');
         $paymentMethod = htmlspecialchars($orderData['mode_paiement'] ?? 'Non spécifié', ENT_QUOTES, 'UTF-8');
         $currentYear = date("Y");
@@ -321,16 +321,17 @@ HTML;
 
         $statusColors = [
             'En attente'     => ['bg' => '#f59e0b', 'text' => '#ffffff'],
-            'En préparation' => ['bg' => '#3b82f6', 'text' => '#ffffff'],
-            'Expédié'        => ['bg' => '#10b981', 'text' => '#ffffff'],
-            'Livré'          => ['bg' => '#059669', 'text' => '#ffffff'],
-            'Annulé'         => ['bg' => '#ef4444', 'text' => '#ffffff'],
+            'Payée'          => ['bg' => '#3b82f6', 'text' => '#ffffff'],
+            'En cours'       => ['bg' => '#3b82f6', 'text' => '#ffffff'],
+            'Expédiée'       => ['bg' => '#10b981', 'text' => '#ffffff'],
+            'Livrée'         => ['bg' => '#059669', 'text' => '#ffffff'],
+            'Annulée'        => ['bg' => '#ef4444', 'text' => '#ffffff'],
         ];
         $color   = $statusColors[$orderData['statut'] ?? ''] ?? ['bg' => '#00d4ff', 'text' => '#ffffff'];
         $bgColor = $color['bg'];
 
         $trackingBlock = '';
-        if ($trackingNumber && in_array($orderData['statut'] ?? '', ['Expédié', 'Livré'], true)) {
+        if ($trackingNumber && in_array($orderData['statut'] ?? '', ['Expédiée', 'Livrée'], true)) {
             $trackingBlock = <<<HTML
             <div style="margin-top:20px; padding:15px; background:#f0fdf4; border:1px solid #86efac; border-radius:8px;">
                 <p style="margin:0; font-weight:bold; color:#166534;">Numéro de suivi</p>
@@ -385,7 +386,7 @@ HTML;
         $clientName     = htmlspecialchars($orderData['client']['nom'] ?? 'Client', ENT_QUOTES, 'UTF-8');
         $orderDate      = htmlspecialchars($orderData['date_commande'] ?? '', ENT_QUOTES, 'UTF-8');
         $total          = htmlspecialchars(number_format((float)($orderData['total'] ?? 0), 2, ',', ' ') . ' €', ENT_QUOTES, 'UTF-8');
-        $address        = htmlspecialchars($orderData['adresse_livraison'] ?? 'Non renseignée', ENT_QUOTES, 'UTF-8');
+        $address        = nl2br(htmlspecialchars($orderData['adresse_livraison'] ?? 'Non renseignée', ENT_QUOTES, 'UTF-8'));
         $payment        = htmlspecialchars($orderData['mode_paiement'] ?? 'Non spécifié', ENT_QUOTES, 'UTF-8');
         $currentYear    = date('Y');
 
@@ -517,7 +518,7 @@ HTML;
         $clientPhone    = htmlspecialchars($orderData['client']['telephone'] ?? 'Non renseigné', ENT_QUOTES, 'UTF-8');
         $orderDate      = htmlspecialchars($orderData['date_commande'] ?? '', ENT_QUOTES, 'UTF-8');
         $total          = htmlspecialchars(number_format((float)($orderData['total'] ?? 0), 2, ',', ' ') . ' €', ENT_QUOTES, 'UTF-8');
-        $address        = htmlspecialchars($orderData['adresse_livraison'] ?? 'Non renseignée', ENT_QUOTES, 'UTF-8');
+        $address        = nl2br(htmlspecialchars($orderData['adresse_livraison'] ?? 'Non renseignée', ENT_QUOTES, 'UTF-8'));
         $payment        = htmlspecialchars($orderData['mode_paiement'] ?? 'Non spécifié', ENT_QUOTES, 'UTF-8');
         $currentYear    = date('Y');
 

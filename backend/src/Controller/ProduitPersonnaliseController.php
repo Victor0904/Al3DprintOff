@@ -124,6 +124,7 @@ class ProduitPersonnaliseController extends AbstractController
             $produit->setPrix($data['prix']);
             $produit->setStock($data['stock'] ?? 0);
             $produit->setImagePrincipale($data['image_principale'] ?? null);
+            $produit->setVideoUrl(($data['video_url'] ?? null) ?: null);
             $produit->setActif($data['actif'] ?? true);
 
             // Associer la catégorie si fournie
@@ -195,6 +196,9 @@ class ProduitPersonnaliseController extends AbstractController
         }
         if (isset($data['image_principale'])) {
             $produit->setImagePrincipale($data['image_principale']);
+        }
+        if (array_key_exists('video_url', $data)) {
+            $produit->setVideoUrl($data['video_url'] ?: null);
         }
         if (isset($data['actif'])) {
             $produit->setActif($data['actif']);

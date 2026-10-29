@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Commandes;
 use App\Entity\Paiements;
+use App\Entity\VarianteCouleur;
 use App\Service\TokenService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -172,10 +173,19 @@ class StripeController extends SecuredApiController
                 $paiement->setStripePaymentId($paymentIntentId);
                 $this->entityManager->persist($paiement);
 
-                // Le stock n'est décrémenté qu'une fois le paiement encaissé
+                if ($commande->getStatut() === 'En attente') {
+                    $commande->setStatut('Payée');
+                }
+
+                // Le stock n'est décrémenté qu'une fois le paiement encaissé (produit et coloris)
                 foreach ($commande->getDetailsCommandes() as $detail) {
                     $produit = $detail->getProduit();
                     $produit->setStock(max(0, $produit->getStock() - $detail->getQuantite()));
+                    $varianteId = $detail->getPersonnalisation()['variante_id'] ?? null;
+                    $variante = $varianteId ? $this->entityManager->getRepository(VarianteCouleur::class)->find($varianteId) : null;
+                    if ($variante && $variante->getProduit() === $produit) {
+                        $variante->setStock(max(0, $variante->getStock() - $detail->getQuantite()));
+                    }
                 }
 
                 $this->entityManager->flush();
